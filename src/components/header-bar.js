@@ -9,6 +9,8 @@ export class HeaderBar extends React.Component {
         this.props.dispatch(clearAuth());
         clearAuthToken();
     }
+    // Determines whether to display horizontal menu
+    // or dropdown vertial menu
     menuFunction() {
         var x = document.getElementById("myTopnav");      
         if (x.className === "topnav") {
@@ -25,30 +27,24 @@ export class HeaderBar extends React.Component {
                 <Link to="#" onClick={() => this.logOut()}>Log out</Link>
             );
         }
+        // Only render login button if user is not logged in
         let logInButton;
         if (!this.props.loggedIn) {
             logInButton = (
                  <Link to="/login" >Log In</Link>                                     		                  
             );
-        }  
+        } 
+         // Only render Sign Up button if user is not logged in 
         let signUpButton;
         if (!this.props.loggedIn) {
             signUpButton = (
                 <Link to="/register">Sign Up</Link>                                       		                  
             );
         } 
-        let  menuButton = (
-            /*
-            <a href="javascript:void(0);" className="icon"                     
-                 onClick={() => this.menuFunction()}>
-                <i className="fa fa-bars"></i>
-            </a> 
-            */
-            
+        let  menuButton = (             
              <Link  to="" onClick={() => this.menuFunction()}  className="icon" >
                 <i className="fa fa-bars"></i> 
-            </Link>   
-                                                             		                  
+            </Link>                                                                		                  
         );         
 
         // Only render the user information if the user is logged in

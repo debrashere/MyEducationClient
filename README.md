@@ -2,8 +2,13 @@
 
 Thinkful (https://www.thinkful.com/) React Capstone Project providing API service to manage view and rate educational tools for children.
 
-Link to the live demo:  https://debrashere.github.io/MyEducationClient/
+###Link to the live demo:  
+	Github: https://debrashere.github.io/MyEducationClient/
+	Heroku: https://immense-savannah-21266.herokuapp.com/
 
+####Link to the API server:	
+	Github: https://debrashere.github.io/MyEducationServer/
+	Heroku: https://myeducationserver.herokuapp.com/api/users
 
 ### Summary
 
