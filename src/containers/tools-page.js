@@ -4,7 +4,12 @@ import {Redirect} from 'react-router-dom';
 import {Link} from 'react-router-dom';
 import ToolsList from '../components/tools-list'
 import { fetchTools } from '../actions/toolsActions';
+import requiresLogin from '../components/requires-login';
 
+/*
+  List of existing tools
+  Link to add a new tool
+*/
 class ToolsPage extends React.Component { 
   componentDidMount() {   
     this.props.dispatch(fetchTools()) 
@@ -50,5 +55,4 @@ const mapStateToProps = state => ({
   tools: state.toolsReducer.tools
 });
 
-//export default ToolsPage
-export default connect(mapStateToProps)(ToolsPage);
+export default requiresLogin()(connect(mapStateToProps)(ToolsPage));

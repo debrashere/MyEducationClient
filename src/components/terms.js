@@ -1,22 +1,29 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import requiresLogin from './requires-login';
  
+/*
+    Terms: linked from page footer
+*/
 export class Terms extends React.Component {
-     
     render() {
-     
-        return (
-            <div>
-                <div>  
-                    <span className='item'>Blog Title ***</span> 
-                </div> 
-                <div className='flex-container'>                                            
-                    <div className='flex-item box' key="1"> 
-                        <div className='item comment-author'>UserName</div>             
-                        <div className='item'>Blog Comments</div>                                                           
-                    </div>     
-                </div>
-            </div>) 
+        return (        
+            <div className="terms-and-conditions"> 
+             <section id="terms">
+				<div className="flex-container">
+						<div className="flex-item">
+							<section className="box">
+								<h2>Terms and Conditions</h2>
+                                <h3>BY REGISTERING FOR THIS WEBSITE AND USING ANY OF THE TOOLS, YOU ACCEPT THE FOLLOWING TERMS AND CONDITIONS.</h3>
+								<p><em>What is personal information?</em></p>
+                                <p>Personal information includes your demographic information (including name, email address, gender).</p>
+							</section>
+						</div>
+				</div>		
+			</section>                                      
+            </div>                        
+        );
     }
 }
 
-export default (Terms);
+export default requiresLogin()(connect()(Terms));

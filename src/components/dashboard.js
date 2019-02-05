@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {DashboardMenu} from './dashboard-menu';
+import {DashboardWidgets} from './dashboard-widgets';
 
 export class Dashboard extends React.Component {
      render() {
         return (        
-             <DashboardMenu />                   
+             <DashboardWidgets />                   
         );
     }
 }

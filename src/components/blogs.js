@@ -4,6 +4,9 @@ import {Link} from 'react-router-dom';
 
 export function Blogs(props) {    
     let blogs;
+
+    // Render list of tools that have blogs. 
+    // Display the tool title, count of blog entries and link to view the blogs
     if (props && props.blogs && props.blogs.length > 0) {  
         blogs = props.blogs.map(function(blog, index) {            
         return (

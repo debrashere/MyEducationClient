@@ -1,24 +1,28 @@
 import React from 'react';
 
+/*
+    Overview of the App pages
+*/
 export function ToolsOverview(props) {                               
     return (
         <div className='flex-container'>                     
              <div className='flex-item'>
                 <h2>Educational Tools Overview</h2>
-                <ul>
-                    <li>
+             
+                <strong>Tools </strong>
+                <textarea>
                         Access to sites with reviews of educational sites geared towards children.
-                    </li>
-                    <li>
-                        View and respond to blogs about sites that interest you.
-                    </li>
-                    <li>
-                        Access to track which sites you have reviews.
-                    </li>    
-                    <li>
-                        Access to track educational plans of your own.
-                    </li>                                    
-                </ul>
+                 </textarea>
+
+                 <strong>Blogs  </strong>
+                 <textarea>
+                          View list of tools for which users have made blog entries.
+                 </textarea>
+
+                 <strong>Blog  </strong>
+                 <textarea>                  
+                        View blog entries for a specific tool.
+                 </textarea>                                                                     
              </div>
         </div>) 
 }

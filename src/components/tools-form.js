@@ -6,7 +6,8 @@ import {createTool} from '../actions/toolsActions';
 import Input from './input';
 import {required, nonEmpty, isTrimmed, isUrlFormatValid, isNumeric, isRatingValid} from '../validators';
 
-export class ToolsForm extends React.Component {      
+export class ToolsForm extends React.Component {  
+    // Submit the new tool data    
     onSubmit(values) {
         return this.props
             .dispatch(createTool(this.props.currentUser.username, values.title,

@@ -2,18 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Blogs from '../components/blogs';
 import { fetchBlogs } from '../actions/blogsActions';
+import requiresLogin from '../components/requires-login';
  
+/*
+    Displays all tools which have blogging entries. 
+    User able link to specific tool blogs
+*/
 class BlogsPage extends React.Component { 
     componentDidMount() {    
       this.props.dispatch(fetchBlogs());                
     }
 
     render() {
-    let   error = '';  
-    /*
-        let params =  { toolId: this.props.match.params.id,
-                        blogs: this.props.blogs };   
-                        */     
+    let   error = '';    
         return (
         <section  className="wrapper  special">                       
             <h2>Blogs</h2>
@@ -26,16 +27,14 @@ class BlogsPage extends React.Component {
 }
  
 BlogsPage.defaultProps = {
-    loggedIn: false,
     blogs: []
   };
   
   const mapStateToProps = (state) => {
        return ({
-      loggedIn: state.auth.currentUser !== null,  
       blogs: state.blogsReducer.consoleblogs
   });
 }
   
-  export default connect(mapStateToProps)(BlogsPage);
+  export default requiresLogin()(connect(mapStateToProps)(BlogsPage));
     

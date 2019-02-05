@@ -8,6 +8,7 @@ import {required, nonEmpty, isTrimmed} from '../validators';
 export class ToolsEditForm extends React.Component { 
     
     componentDidMount() {
+        // display the form with the current tools data
         if (this.props && this.props.params.toolId  && this.props.params.tools) { 
             let selectedTool =  this.props.tools.filter( tool => tool.id === this.props.params.toolId);
             this.props.destroy();     
@@ -22,6 +23,7 @@ export class ToolsEditForm extends React.Component {
     }
     
     onSubmit(values) {
+        // Submit the updates
         return this.props
             .dispatch(updateTool( this.props.params.toolId, values.title,
                 values.url, values.description, values.price,
@@ -78,7 +80,6 @@ export class ToolsEditForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    currentUser: state.auth.currentUser,
     tools: state.toolsReducer.tools
 });
 

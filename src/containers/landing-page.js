@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {DashboardMenu} from '../components/dashboard-menu';
+import {DashboardWidgets} from '../components/dashboard-widgets';
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard    
@@ -10,7 +10,7 @@ export function LandingPage(props) {
     }
     
         return (        
-             <DashboardMenu />                   
+             <DashboardWidgets />                   
         );
 }
 

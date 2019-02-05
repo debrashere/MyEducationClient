@@ -17,7 +17,7 @@ import RegistrationPage from './registration-page';
 import {refreshAuthToken} from '../actions/auth';
 import {ToolsOverview} from '../components/tools-overview';
 import {Contacts} from '../components/contacts';
-import {Terms} from '../components/termsAndConditions';
+import {Terms} from '../components/terms';
 
 
 export class App extends React.Component {

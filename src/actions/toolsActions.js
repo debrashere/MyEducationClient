@@ -147,34 +147,3 @@ export const fetchTools = () => (dispatch, getState) => {
          })
      )
   };
-
-  /*
-export const deleteTool = tool => dispatch => {
-    dispatch({type:types.DELETE_TOOL});
-    return fetch(`${API_BASE_URL}/tools`, {
-        method: 'DELETE',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(tool)
-    })
-        .then(res => normalizeResponseErrors(res))
-        .then(res => res.json())
-        .then(data => {                   
-            dispatch(deleteToolSuccess(tool));
-            return Promise.resolve();                                 
-        })         
-        .catch(err => {
-            const {reason, message, location} = err;
-            dispatch(toolsError(message));
-            if (reason === 'ValidationError') {
-                // Convert ValidationErrors into SubmissionErrors for Redux Form
-                return Promise.reject(
-                    new SubmissionError({
-                        [location]: message
-                    })
-                );
-            }          
-        });
-};
-*/

@@ -2,7 +2,11 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ToolsEditForm  from '../components/tools-editForm';
 import { fetchTool } from '../actions/toolsActions';
+import requiresLogin from '../components/requires-login';
 
+/*
+    Edit Tool information
+*/
 class EditToolsPage extends React.Component { 
     componentDidMount() {  
         this.props.dispatch(fetchTool(this.props.match.params.toolId))                 
@@ -23,14 +27,12 @@ class EditToolsPage extends React.Component {
     }
      
     EditToolsPage.defaultProps = {
-        loggedIn: false,
         tools: []
     };
         
     const mapStateToProps = (state) => ({
-        loggedIn: state.auth.currentUser !== null,  
         tools: state.toolsReducer.tools
     });
     
-export default connect(mapStateToProps)(EditToolsPage);
+export default requiresLogin()(connect(mapStateToProps)(EditToolsPage));
     

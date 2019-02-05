@@ -3,7 +3,12 @@ import {connect} from 'react-redux';
 import BlogsForm from '../components/blog-form';
 import Blog from '../components/blog';
 import { fetchBlog } from '../actions/blogsActions';
+import requiresLogin from '../components/requires-login';
  
+/*
+    Displays blogging content for a specific Tool
+    Input area to allow user to add more commits
+*/
 class BlogPage extends React.Component { 
     componentDidMount() {  
        this.props.dispatch(fetchBlog(this.props.match.params.id))                 
@@ -34,5 +39,5 @@ BlogPage.defaultProps = {
       blogs: state.blogsReducer.blogs
   });
   
-  export default connect(mapStateToProps)(BlogPage);
+  export default requiresLogin()(connect(mapStateToProps)(BlogPage));
     

@@ -2,6 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
  
+/*
+    Render contact information
+*/
 export class Contacts extends React.Component {
     render() {
         return (        
