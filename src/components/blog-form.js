@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
 import {createBlog, updateBlog, deleteBlog} from '../actions/blogsActions';
 import Input from '../components/input';
-import {required, nonEmpty, isTrimmed} from '../validators'
  
 export class BlogsForm extends React.Component {
     // Combine new and existing comments to pass to server for updates
