@@ -89,6 +89,7 @@ export const updateTool = ( id, title, url, description, price, rating) =>  (dis
 export const fetchTools = () => (dispatch, getState) => {
     dispatch({type:types.FETCH_TOOLS});
     const authToken = getState().auth.authToken;
+ 
     return  (
          fetch(`${API_BASE_URL}/tools`, {
             method: 'GET',
