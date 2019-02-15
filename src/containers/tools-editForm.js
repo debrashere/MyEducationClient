@@ -8,31 +8,50 @@ import requiresLogin from '../components/requires-login';
     Edit Tool information
 */
 class EditToolsPage extends React.Component { 
-    componentDidMount() {  
-        this.props.dispatch(fetchTool(this.props.match.params.toolId))                 
+   
+    componentWillMount() {  
+       // console.log("CONTAINER  tools-editForm componentWillMount props", this.props);
+        this.props.dispatch(fetchTool(this.props.match.params.id));                      
     }
 
+       
+    componentDidMount() {  
+        //console.log("CONTAINER  tools-editForm componentDidMount props", this.props);
+       this.props.dispatch(fetchTool(this.props.match.params.id));                      
+    }
+   
     render() {
     let   error = '';  
-        let params =  { toolId: this.props.match.params.toolId,
-                        tools: this.props.tools };        
+    //console.log("CONTAINER  tools-editForm render() props", this.props);
+                              
         return (
             <section  className="wrapper  special">   
             <h2>Edit Tool</h2>
                 {error}                   
-                <ToolsEditForm params={params} />                        
+                <ToolsEditForm />                        
             </section>
             )
         }
     }
-     
-    EditToolsPage.defaultProps = {
-        tools: []
-    };
         
     const mapStateToProps = (state) => ({
-        tools: state.toolsReducer.tools
+        tool: state.toolsReducer.tool        
     });
-    
+
+/*
+    const mapDispatchToProps = dispatch => {
+        return {
+          // explicitly forwarding arguments
+          onClick: event => dispatch(trackClick(event)),
+      
+          // implicitly forwarding arguments
+          onReceiveImpressions: (...impressions) =>
+            dispatch(trackImpressions(impressions))
+        }
+      }
+*/
+
 export default requiresLogin()(connect(mapStateToProps)(EditToolsPage));
     
+
+//export default requiresLogin()(connect(mapStateToProps, mapDispatchToProps)(ScheduleContainer));  

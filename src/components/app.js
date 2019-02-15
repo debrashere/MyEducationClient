@@ -11,9 +11,9 @@ import Dashboard from './dashboard';
 import BlogPage from '../containers/blog-page';
 import BlogsPage from '../containers/blogs-page';
 import ToolsPage from '../containers/tools-page';
-import ToolsFormPage from '../containers/tools-form';
+import ToolsForm from '../containers/tools-form';
 import EditToolsPage from '../containers/tools-editForm';
-import RegistrationPage from './registration-page';
+import RegistrationPage from '../containers/registration-page';
 import {refreshAuthToken} from '../actions/auth';
 import {ToolsOverview} from '../components/tools-overview';
 import {Contacts} from '../components/contacts';
@@ -63,8 +63,8 @@ export class App extends React.Component {
                 <Route exact path="/blog/:id" component={BlogPage} />                         
                 <Route exact path="/blogs" component={BlogsPage} />
                 <Route exact path="/tools" component={ToolsPage} />                  
-                <Route exact path="/toolsform/:id" component={ToolsFormPage} />
-                <Route exact path="/toolseditform/:id/:toolId" component={EditToolsPage} />
+                <Route exact path="/toolsform/:id" component={ToolsForm} />
+                <Route exact path="/toolseditform/:id" component={EditToolsPage} />
                 <Route exact path="/toolsOverview" component={ToolsOverview} />  
                 <Route exact path="/contacts" component={Contacts} /> 
                 <Route exact path="/terms" component={Terms} /> 

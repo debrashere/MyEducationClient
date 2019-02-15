@@ -20,7 +20,7 @@ class BlogsPage extends React.Component {
             <h2>Blogs</h2>
             <div><em>Note: </em> This page only displays Tools that have blog entries.</div>
             {error} 
-            <Blogs />
+            <Blogs blogs={this.props.blogs} />
         </section>
         )
     }
@@ -32,7 +32,7 @@ BlogsPage.defaultProps = {
   
   const mapStateToProps = (state) => {
        return ({
-      blogs: state.blogsReducer.consoleblogs
+      blogs: state.blogsReducer.blogs
   });
 }
   

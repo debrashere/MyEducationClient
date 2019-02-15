@@ -9,7 +9,8 @@ import requiresLogin from '../components/requires-login';
     Displays blogging content for a specific Tool
     Input area to allow user to add more commits
 */
-class BlogPage extends React.Component { 
+class BlogPage extends React.Component {
+
     componentDidMount() {  
        this.props.dispatch(fetchBlog(this.props.match.params.id))                 
     }
@@ -17,26 +18,21 @@ class BlogPage extends React.Component {
     render() {
     let   error = '';  
         let params =  { toolId: this.props.match.params.id,
-                        blogs: this.props.blogs };        
+                        blog: this.props.blog };        
         return (
         <section  className="wrapper  special">                      
             <BlogsForm params={params} />
             <h2>Blog Comments</h2>
             {error} 
-            <Blog toolId={this.props.match.params.id} />
+            <Blog blog={this.props.blog} />
         </section>
         )
     }
 }
- 
-BlogPage.defaultProps = {
-    loggedIn: false,
-    blogs: []
-  };
-  
+
   const mapStateToProps = (state) => ({
       loggedIn: state.auth.currentUser !== null,  
-      blogs: state.blogsReducer.blogs
+      blog: state.blogsReducer.blog
   });
   
   export default requiresLogin()(connect(mapStateToProps)(BlogPage));

@@ -7,17 +7,14 @@ import {required, nonEmpty, isTrimmed} from '../validators';
 
 export class ToolsEditForm extends React.Component { 
     
-    componentDidMount() {
-        // display the form with the current tools data
-        if (this.props && this.props.params.toolId  && this.props.params.tools) { 
-            let selectedTool =  this.props.tools.filter( tool => tool.id === this.props.params.toolId);
-            this.props.destroy();     
+    componentWillReceiveProps() {
+         if (this.props  && this.props.tool) {         
             this.props.initialize({
-                title: selectedTool[0].title,
-                url: selectedTool[0].url,
-                description: selectedTool[0].description,
-                rating: selectedTool[0].rating,
-                price: selectedTool[0].price
+                title: this.props.tool.title,
+                url: this.props.tool.url,
+                description: this.props.tool.description,
+                rating: this.props.tool.rating,
+                price: this.props.tool.price
             });             
         }            
     }
@@ -25,7 +22,7 @@ export class ToolsEditForm extends React.Component {
     onSubmit(values) {
         // Submit the updates
         return this.props
-            .dispatch(updateTool( this.props.params.toolId, values.title,
+            .dispatch(updateTool( this.props.id, values.title,
                 values.url, values.description, values.price,
                 values.rating))                                 
     }
@@ -79,8 +76,8 @@ export class ToolsEditForm extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    tools: state.toolsReducer.tools
+const mapStateToProps = state =>  ({
+    tool: state.toolsReducer.tool
 });
 
 ToolsEditForm = connect(

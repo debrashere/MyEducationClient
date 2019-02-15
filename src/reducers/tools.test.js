@@ -31,7 +31,7 @@ describe('toolsReducer', () => {
     beforeAll(() => {
         for (let i = 1; i < 6 ; i++) {
             tools.push({
-                id: i,
+                id: i,       
                 title: `title-${i}`,
                 description: `description-${i}`,
                 url: `url${i}`,
@@ -54,27 +54,32 @@ describe('toolsReducer', () => {
         type: types.FETCH_TOOL
     }
     fetchToolActionResult = { 
+        id: undefined,
+        toolId: '',
         tool: {},
         tools: [],
         loading: true,
         error: null
     }
     fetchToolSuccessAction = { 
-        type: types.FETCH_TOOL_SUCCESS,
+        type: types.FETCH_TOOL_SUCCESS,      
         tool: tool
     }
     fetchToolSuccessActionResult = { 
+        id: tool.id,
+        toolId: tool.id,
         tool: tool,
         tools: [],
         loading: false,
         error: null
-    }
+    };   
 
     fetchToolsAction = { 
         type: types.FETCH_TOOLS
     }
     fetchToolsActionResult = {
         id: null, 
+        toolId: '',
         tool: {},
         tools: [],
         loading: true,
@@ -88,6 +93,7 @@ describe('toolsReducer', () => {
         error: null,
         id: null,
         loading: false,
+        toolId: '',
         tool: {},
         tools: tools,    
     }
@@ -100,6 +106,7 @@ describe('toolsReducer', () => {
         error: null,
         id: null,
         loading: true,
+        toolId: '',
         tool: {},
         tools: []      
     }
@@ -110,7 +117,8 @@ describe('toolsReducer', () => {
     createToolSuccessActionResult = { 
         error: null,
         id: undefined,     
-        loading: false,     
+        loading: false,   
+        toolId: '',  
         tool: tool,
         tools: []
     }
@@ -119,12 +127,16 @@ describe('toolsReducer', () => {
     updateToolAction = { 
         type: types.UPDATE_TOOL
     }
+    
     updateToolActionResult = { 
+        id: undefined,
         error: null,
         loading: true,
+        toolId: "",
         tool: {},
         tools: []  
     }
+     
     updateToolSuccessAction = { 
         type: types.UPDATE_TOOL_SUCCESS,
         tool: tool
@@ -133,6 +145,7 @@ describe('toolsReducer', () => {
         error: null,
         id: undefined,
         loading: false,
+        toolId: '',
         tool: tool,
         tools: []             
     }
@@ -145,16 +158,18 @@ describe('toolsReducer', () => {
         error: 'error', 
         id: null,
         loading: false,
+        toolId: '',
         tool: {},
         tools: []          
     }
 
     const initialState = {
-        id: null,
-        tool: {},
-        tools: [],
-        loading: false,
-        error: null
+        id: null, 
+        error: null, 
+        loading: false, 
+        tool: {}, 
+        toolId: "", 
+        tools: []
     };
 
     it('Should set the initial state when nothing is passed in', () => {

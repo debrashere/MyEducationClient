@@ -92,7 +92,7 @@ export const updateBlog = (id, toolId, comments) => (dispatch, getState )=> {
         });
 };
 
-export const fetchBlogs = () => (dispatch, getState) => {
+export const fetchBlogs = () => (dispatch, getState) => {    
     dispatch({type:types.FETCH_BLOGS});
     const authToken = getState().auth.authToken;
     return  (
@@ -104,7 +104,7 @@ export const fetchBlogs = () => (dispatch, getState) => {
             }
         })
         .then(response => response.json())
-        .then(blogs => { 
+        .then(blogs => {  
             dispatch(fetchBlogsSuccess(blogs)) })
         .catch(err => {
             const {code} = err;
@@ -133,8 +133,8 @@ export const fetchBlogs = () => (dispatch, getState) => {
          })
          .then(res => normalizeResponseErrors(res))
          .then(res => res.json())
-         .then(blogs => {   
-             const blog = blogs && blogs.length > 0 ? blogs[0] : {};                  
+         .then(blogs => {          
+             const blog = blogs && blogs.length > 0 ? blogs[0] : {};                 
              dispatch(fetchBlogSuccess(blog));
              return Promise.resolve();                                 
          })         

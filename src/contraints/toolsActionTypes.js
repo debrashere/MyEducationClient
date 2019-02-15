@@ -7,3 +7,5 @@ export const FETCH_TOOL_SUCCESS = 'FETCH_TOOL_SUCCESS';
 export const FETCH_TOOLS = 'FETCH_TOOLS';
 export const FETCH_TOOLS_SUCCESS = 'FETCH_TOOLS_SUCCESS';
 export const TOOLS_ERROR = 'TOOLS_ERROR';
+export const SET_TOOL = 'SET_TOOL';
+export const SET_TOOL_SUCCESS = 'SET_TOOL_SUCCESS';
