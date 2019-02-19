@@ -8,10 +8,7 @@ import {required, nonEmpty} from '../validators';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
-         return this.props.dispatch(login(values.username, values.password))
-         .then(result => {            
-               return <Redirect to="/dashboard" />;
-         })
+         return this.props.dispatch(login(values.username, values.password))     
     }
 
     render() {
@@ -21,8 +18,12 @@ export class LoginForm extends React.Component {
                 <div className="form-error" aria-live="polite">
                     {this.props.error}
                 </div>
-            );
+            );            
         }
+        if (this.props.submitSucceeded === true){         
+           return <Redirect to="/dashboard" />
+        }
+
         return (
             <section  className="wrapper  special" tabIndex="0"> 
             <h2>Welcome to My Educational Tools App</h2>          
