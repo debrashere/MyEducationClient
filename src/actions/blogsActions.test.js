@@ -13,7 +13,8 @@ describe('BlogsActions', () => {
                 blogId: `blogId-${i}`,              
                 comments: [{
                   author: `author-${i}`,  
-                  content: `content-${i}`}]    
+                  content: `content-${i}`,
+                  rating: i }]    
              });
          };
      })
@@ -23,7 +24,8 @@ describe('BlogsActions', () => {
         blogId: '`blogId',              
         comments: [{
         author: 'autho',  
-        content: 'content'}]    
+        content: 'content',
+        rating: 3 }]    
         }
  
  

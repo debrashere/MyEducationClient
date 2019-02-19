@@ -3,11 +3,15 @@ import {Field, reduxForm, focus} from 'redux-form';
 import {Link} from 'react-router-dom';
 import Input from '../components/input';
 import {login} from '../actions/auth';
+import {Redirect} from 'react-router-dom';
 import {required, nonEmpty} from '../validators';
 
 export class LoginForm extends React.Component {
     onSubmit(values) {
          return this.props.dispatch(login(values.username, values.password))
+         .then(result => {            
+               return <Redirect to="/dashboard" />;
+         })
     }
 
     render() {

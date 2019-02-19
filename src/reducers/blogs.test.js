@@ -35,7 +35,8 @@ describe('blogsReducer', () => {
                toolId: `toolId-${i}`,              
                comments: [{
                  author: `author-${i}`,  
-                 content: `content-${i}`}]    
+                 content: `content-${i}`,
+                rating: i}]    
             });
         };
     })
@@ -45,7 +46,8 @@ describe('blogsReducer', () => {
         toolId: 'toolId',              
         comments: [{
         author: 'author',  
-        content: 'content'}]
+        content: 'content',
+        rating: 3 }]
     };
 
     fetchBlogAction = { 

@@ -34,7 +34,7 @@ export const deleteBlogSuccess = () => ({
     type: types.DELETE_BLOG_SUCCESS
 });
 
-export const createBlog = (userId, toolId, content) => (dispatch, getState) => {
+export const createBlog = (userId, toolId, content, rating) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch({type: types.CREATE_BLOG});
     fetch(`${API_BASE_URL}/blogs`, {
@@ -44,7 +44,7 @@ export const createBlog = (userId, toolId, content) => (dispatch, getState) => {
             // Provide our auth token as credentials
             Authorization: `Bearer ${authToken}`
         },
-        body: JSON.stringify({userId, toolId, content})
+        body: JSON.stringify({userId, toolId, content, rating})
     })      
        .then(response => response.json())      
        .then(blog => { 

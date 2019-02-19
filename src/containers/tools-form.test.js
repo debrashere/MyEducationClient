@@ -11,8 +11,7 @@ import renderer  from 'react-test-renderer';
  
 jest.mock('../actions/toolsActions');
 import * as actions from '../actions/__mocks__/toolsActions';
-import {setTools, setStore, store} from  '../actions/__mocks__/toolsActions';
-//const toolsActions = require('../actions/__mocks__/toolsActions');
+import { setStore, store} from  '../actions/__mocks__/toolsActions';
  
 //configure({ adapter: new Adapter() });
 const middlewares = [thunk]
@@ -45,8 +44,7 @@ describe('<ToolsForm />', () => {
         loggedIn  = false;
 
         setStore(mockStore({ tools: [],  auth: {authToken:'token' }}));
-        setTools(thisTools);
-
+        
         values = { 
             title: 'title',
              url: 'www.google.com', 
