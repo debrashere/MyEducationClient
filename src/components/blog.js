@@ -5,8 +5,6 @@ import './blog.css';
 export function Blog(props) { 
     let blogComments = [];
     let blogTitle = '';
-
-    console.log("COMPONENT blog props", props);
     
     // render the Tool title and rating
     if (props.blog && props.blog.comments ) {

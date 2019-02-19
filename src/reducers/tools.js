@@ -11,15 +11,13 @@ const initialState = {
 
 export const toolsReducer = (state = initialState, action) => {
     if (action.type === types.SET_TOOL) {  
-        //console.log("REDUCER toolsReducer SET_TOOL action", action);
         return Object.assign({}, state, {      
             tool: {},
             loading: true,
             error: null
         });        
     }   
-    if (action.type === types.SET_TOOL_SUCCESS) { 
-        //console.log("REDUCER toolsReducer SET_TOOL_SUCCESS action", action);                 
+    if (action.type === types.SET_TOOL_SUCCESS) {                
         return Object.assign({}, state, {      
             id: action.tool.id || '',
             toolId: action.tool.id || '',
@@ -42,9 +40,7 @@ export const toolsReducer = (state = initialState, action) => {
             error: null
         });
     } 
-    else if (action.type === types.FETCH_TOOL) { 
-        //console.log("REDUCER FETCH_TOOL, state ", state)
-        //console.log("REDUCER FETCH_TOOL, action ", action)            
+    else if (action.type === types.FETCH_TOOL) {          
         return Object.assign({}, state, {
             id: action.id,
             toolId: '',
@@ -54,8 +50,6 @@ export const toolsReducer = (state = initialState, action) => {
         });   
     }            
     else if (action.type === types.FETCH_TOOL_SUCCESS) {
-        //console.log("REDUCER FETCH_TOOL_SUCCESS, state ", state) 
-        //console.log("REDUCER FETCH_TOOL_SUCCESS, action.tool ", action.tool)      ;
         return Object.assign({}, state, {
             id: action.tool.id || '',
             toolId: action.tool.id || '',    

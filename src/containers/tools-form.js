@@ -10,7 +10,6 @@ export class ToolsForm extends React.Component {
     // Submit the new tool data  
  
     onSubmit(values) {
-        //console.log ("COMPONENT tools-form onSubmit values", values)  ;
         return this.props
             .dispatch(createTool(this.props.currentUser.username, values.title,
                 values.url, values.description, values.price,
@@ -19,7 +18,7 @@ export class ToolsForm extends React.Component {
 
     render() {
         const { error, handleSubmit, pristine, reset, submitting, submitSucceeded } = this.props
-        let formattedError;
+        let formattedError;     
         if (error) {
             formattedError =             
             <div className="message-error">
@@ -98,7 +97,7 @@ export class ToolsForm extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
     currentUser:{
         firstName: "beebee",
         lastName: "sanders",

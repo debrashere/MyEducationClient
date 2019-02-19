@@ -5,15 +5,15 @@ import {Route, withRouter} from 'react-router-dom';
 import HeaderBar from './header-bar';
 import Banner from './banner';
 import Footer from './footer';
-import LoginPage from '../containers/login-page';
+import LoginForm from '../containers/login-form';
 import LandingPage from '../containers/landing-page';
 import Dashboard from './dashboard';
 import BlogPage from '../containers/blog-page';
 import BlogsPage from '../containers/blogs-page';
 import ToolsPage from '../containers/tools-page';
 import ToolsForm from '../containers/tools-form';
-import EditToolsPage from '../containers/tools-editForm';
-import RegistrationPage from '../containers/registration-page';
+import EditToolsForm from '../containers/tools-editForm';
+import RegistrationForm from '../containers/registration-form';
 import {refreshAuthToken} from '../actions/auth';
 import {ToolsOverview} from '../components/tools-overview';
 import {Contacts} from '../components/contacts';
@@ -57,14 +57,14 @@ export class App extends React.Component {
                 <Banner />                  
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/landingpage" component={LandingPage} />
-                <Route exact path="/login" component={LoginPage} />                                
+                <Route exact path="/login" component={LoginForm} />                                
                 <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/register" component={RegistrationPage} />  
+                <Route exact path="/register" component={RegistrationForm} />  
                 <Route exact path="/blog/:id" component={BlogPage} />                         
                 <Route exact path="/blogs" component={BlogsPage} />
                 <Route exact path="/tools" component={ToolsPage} />                  
                 <Route exact path="/toolsform/:id" component={ToolsForm} />
-                <Route exact path="/toolseditform/:id" component={EditToolsPage} />
+                <Route exact path="/toolseditform/:id" component={EditToolsForm} />
                 <Route exact path="/toolsOverview" component={ToolsOverview} />  
                 <Route exact path="/contacts" component={Contacts} /> 
                 <Route exact path="/terms" component={Terms} /> 
