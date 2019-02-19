@@ -1,6 +1,8 @@
+import React from 'react';
 import {SubmissionError} from 'redux-form';
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
+import {Redirect} from 'react-router-dom';
 import * as types from '../contraints/toolsActionTypes';
 
 export const toolsError = error => ({
@@ -21,7 +23,7 @@ export const updateToolSuccess = (tool) => ({
 export const fetchToolSuccess = (tool) => {
 return ({  
     type: types.FETCH_TOOL_SUCCESS,
-    tool
+    tool: tool
 });
 }
 
@@ -29,6 +31,25 @@ export const createToolSuccess = (tool) => ({
     type: types.CREATE_TOOL_SUCCESS,
     tool
 });
+
+export const setToolSuccess = (tool) => ({
+    type: types.SET_TOOL_SUCCESS,
+    tool
+});
+
+export const setTool = (tool) =>  (dispatch) => {
+    dispatch({type: types.SET_TOOL});
+    if (tool)
+    {
+        dispatch(setToolSuccess(tool));    
+        const redirectTo = `toolseditform/5c59230e83a0a11290d0e4a2`;
+        return <Redirect to={redirectTo}/>
+    }
+    else 
+    {        
+        dispatch(toolsError("Oops, Something went wrong. Please try again."));
+    }       
+};
 
 export const createTool = (userName, title, url, description, price, rating) =>  (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -128,8 +149,7 @@ export const fetchTools = () => (dispatch, getState) => {
          })
          .then(res => normalizeResponseErrors(res))
          .then(res => res.json())
-         .then(tools => {   
-             const tool = tools && tools.length > 0 ? tools[0] : {};                  
+         .then(tool => {                
              dispatch(fetchToolSuccess(tool));
              return Promise.resolve();                                 
          })         

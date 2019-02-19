@@ -14,13 +14,21 @@ class BlogsPage extends React.Component {
     }
 
     render() {
-    let   error = '';    
+    let loadingMsg;
+    let   error = '';   
+    if (this.props.loading === true)  {         
+      loadingMsg = <div className="message" aria-live="polite">...Loading</div>;  
+    }
+    else
+     loadingMsg = "";  
+
         return (
         <section  className="wrapper  special">                       
             <h2>Blogs</h2>
             <div><em>Note: </em> This page only displays Tools that have blog entries.</div>
             {error} 
-            <Blogs />
+            {loadingMsg} 
+            <Blogs blogs={this.props.blogs} />
         </section>
         )
     }
@@ -32,7 +40,8 @@ BlogsPage.defaultProps = {
   
   const mapStateToProps = (state) => {
        return ({
-      blogs: state.blogsReducer.consoleblogs
+      blogs: state.blogsReducer.blogs,
+      loading: state.blogsReducer.loading
   });
 }
   
