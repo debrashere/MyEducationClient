@@ -58,8 +58,8 @@ Please
 #### Test logins:
 
   Password is the same for all mocked users **Mypassw0rd**
-  * **bsanders**: Able to view and edit tools.  Able to view and add blogging comments.
-  * **ssanders**: Able to view and edit tools.  Able to view and add blogging comments.
+  * **asanders**: Able to view and edit tools.  Able to view and add blogging comments.
+  * Also you may click on "Demo Log in" from the Login page.
  
 
 ## Versioning

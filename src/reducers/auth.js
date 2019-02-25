@@ -3,8 +3,7 @@ import {
     CLEAR_AUTH,
     AUTH_REQUEST,
     AUTH_SUCCESS,
-    AUTH_ERROR,
-    AUTH_VALIDATION_OPTIONS
+    AUTH_ERROR
 } from '../actions/auth';
 
 const initialState = {

@@ -37,7 +37,7 @@ export function Blog(props) {
         // render each comment displaying the author, comment and rating
         props.blog.comments.sort(function(a, b){
              var dateA=new Date(a.commentDate), dateB=new Date(b.commentDate)
-                return dateA-dateB //sort by date ascending
+                return dateB-dateA //sort by date ascending
         }).forEach(function (comment, i) {  
             blogComments.push(            
                 <div className='flex-item item-box' key={i}> 

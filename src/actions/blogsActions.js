@@ -77,7 +77,7 @@ export const updateBlog = (id, comments) => (dispatch, getState )=> {
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(blog => {            
+        .then(blog => {  
             dispatch(updateBlogSuccess(blog)) 
             return Promise.resolve();    })      
         .catch(err => {           

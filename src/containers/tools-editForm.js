@@ -34,9 +34,9 @@ export class ToolsEditForm extends React.Component {
     render() {        
         const { error, handleSubmit, pristine, reset, submitting, submitSucceeded } = this.props          
         return (
-            <div> 
-                <h2>Edit Form</h2>  
-                <form className="form" onSubmit={handleSubmit(values => this.onSubmit(values) )}>                            
+            <div className="edit-form" > 
+                <h2>  Edit Tool</h2>  
+                <form className="form edit-form" onSubmit={handleSubmit(values => this.onSubmit(values) )}>                            
 
                     {error && <strong>{error}</strong>}
                     <div className="message-success">

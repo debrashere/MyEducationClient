@@ -9,7 +9,8 @@ let errors = [];
 let validationErrors;
 let validationErrorMessage;
 
-export class BlogsForm extends React.Component {
+export class BlogsForm extends React.Component {  
+     
     // Combine new and existing comments to pass to server for updates
     // to comments collection for this blog
      formatComments(username, content, rating ) {
@@ -46,16 +47,16 @@ export class BlogsForm extends React.Component {
     // executed when adding blog comments after form successfully updates
     submit(values) {    
        
-        // if comments already exist for this blog then add new comment           
+        // if comments already exist for this blog then add new comment                
         if (this.props.blog && this.props.blog.toolId) { 
             const comments = 
                 this.formatComments( this.props.currentUser.username, values.content , values.rating); 
-            return this.props.dispatch(updateBlog( this.props.blog.id, comments))                
+            return this.props.dispatch(updateBlog( this.props.blog.id, comments))               
         }
-        // if this is first blog comment then create the blog and comment
+        // if this is first blog comment then create the blog and comment 
         return this.props
             .dispatch(createBlog(this.props.currentUser.username, 
-                this.props.params.toolId, values.content, values.rating ))                                                
+                this.props.params.toolId, values.content, values.rating))                                                   
     }
 
     onSubmit(values) { 
