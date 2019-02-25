@@ -260,7 +260,13 @@
 		.input-rating {
 			width: 100px;
 		}
-
+		.input-username {
+			background: blue;
+			width: 100px;
+		}
+		.input-password {
+			width: 100px;
+		}
 
 		input[type="textarea"] {
 			display: flex;

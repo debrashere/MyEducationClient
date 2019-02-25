@@ -63,7 +63,7 @@ export const createBlog = (userId, toolId, content, rating) => (dispatch, getSta
        })
 };
 
-export const updateBlog = (id, toolId, comments) => (dispatch, getState )=> {
+export const updateBlog = (id, comments) => (dispatch, getState )=> {
     const authToken = getState().auth.authToken; 
     dispatch({type: types.UPDATE_BLOG});   
     return fetch(`${API_BASE_URL}/blogs/${id}`, {
@@ -73,14 +73,14 @@ export const updateBlog = (id, toolId, comments) => (dispatch, getState )=> {
             // Provide our auth token as credentials
             Authorization: `Bearer ${authToken}`
         },
-        body: JSON.stringify({id, toolId, comments})
+        body: JSON.stringify({id, comments})
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
-        .then(blog => {  
+        .then(blog => {            
             dispatch(updateBlogSuccess(blog)) 
             return Promise.resolve();    })      
-        .catch(err => {
+        .catch(err => {           
             const {reason, message} = err;
             dispatch(blogError(message));
             if (reason === 'ValidationError') {
@@ -92,7 +92,7 @@ export const updateBlog = (id, toolId, comments) => (dispatch, getState )=> {
         });
 };
 
-export const fetchBlogs = () => (dispatch, getState) => {    
+export const fetchBlogs = () => (dispatch, getState) => { 
     dispatch({type:types.FETCH_BLOGS});
     const authToken = getState().auth.authToken;
     return  (
@@ -152,7 +152,7 @@ export const fetchBlogs = () => (dispatch, getState) => {
      )
   };
 
-export const deleteBlog = (id) => (dispatch, getState) => {
+export const deleteBlog = (id, userName) => (dispatch, getState) => {
     dispatch({type:types.DELETE_BLOG});
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/blogs/${id}`, {
@@ -160,7 +160,8 @@ export const deleteBlog = (id) => (dispatch, getState) => {
         headers: {
             // Provide our auth token as credentials
             Authorization: `Bearer ${authToken}`
-        } 
+        },
+        body: JSON.stringify({id, userName})
     })
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())

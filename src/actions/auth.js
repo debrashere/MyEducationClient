@@ -33,6 +33,12 @@ export const authError = error => ({
     error
 });
 
+export const AUTH_VALIDATION_OPTIONS = 'AUTH_VALIDATION_OPTIONS';
+export const authValidationOptions = options => ({
+    type: AUTH_VALIDATION_OPTIONS,
+    options
+});
+
 // Stores the auth token in state and localStorage, and decodes and stores
 // the user data stored in the token
 const storeAuthInfo = (authToken, dispatch) => {
@@ -41,6 +47,10 @@ const storeAuthInfo = (authToken, dispatch) => {
     dispatch(authSuccess(decodedToken.user));
     saveAuthToken(authToken);
 };
+
+export const setValidationOptions = (options) => dispatch => {      
+    dispatch(authValidationOptions(options));
+}
 
 export const login = (username, password) => dispatch => {
     dispatch(authRequest());
@@ -69,11 +79,12 @@ export const login = (username, password) => dispatch => {
                 dispatch(authError(err));
                 // Could not authenticate, so return a SubmissionError for Redux
                 // Form
+               
                 return Promise.reject(
                     new SubmissionError({
                         _error: message
                     })
-                );
+                );               
             })
     );
 };

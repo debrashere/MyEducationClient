@@ -14,24 +14,27 @@ class BlogPage extends React.Component {
     componentDidMount() {  
        this.props.dispatch(fetchBlog(this.props.match.params.id))                 
     }
-
+    
     render() {
     let   error = '';  
         let params =  { toolId: this.props.match.params.id,
-                        blog: this.props.blog };        
+                        blog: this.props.blog }; 
+     let blogParams = { blog: this.props.blog,
+                        currentUser: this.props.currentUser };         
         return (
         <section  className="wrapper  special">                      
             <BlogsForm params={params} />
             <h2>Blog Comments</h2>
             {error} 
-            <Blog blog={this.props.blog} />
-        </section>
+              <Blog {...blogParams} />
+        </section>                        
         )
     }
 }
 
   const mapStateToProps = (state) => ({
-      loggedIn: state.auth.currentUser !== null,  
+      loggedIn: state.auth.currentUser !== null, 
+      currentUser:  state.auth.currentUser, 
       blog: state.blogsReducer.blog
   });
   

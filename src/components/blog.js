@@ -5,8 +5,10 @@ import './blog.css';
 export function Blog(props) { 
     let blogComments = [];
     let blogTitle = '';
-    let ratingsSummary = [];       
-   
+    let ratingsSummary = [];         
+     
+   // summarize each distinct rating and count of that rating
+   // render rating as stars with count of distinct users who gave that rating
     let formatRatingsSummary = () => {
         let formatted = [];
         ratingsSummary.push({rating: props.blog.toolId.rating, count: 1}); 
@@ -33,12 +35,15 @@ export function Blog(props) {
         </div> 
 
         // render each comment displaying the author, comment and rating
-        props.blog.comments.forEach(function (comment, i) {
+        props.blog.comments.sort(function(a, b){
+             var dateA=new Date(a.commentDate), dateB=new Date(b.commentDate)
+                return dateA-dateB //sort by date ascending
+        }).forEach(function (comment, i) {  
             blogComments.push(            
                 <div className='flex-item item-box' key={i}> 
                     <div className='item comment-author'>{comment.author}</div>             
                     <div className='item'>{comment.content}</div>    
-                    <div className='item'>{convertNumberToStars(comment.rating)}</div>                                                        
+                    <div className='item comment-rating'>{convertNumberToStars(comment.rating)}</div>                                                                   
                 </div>)  
         });                  
     }    

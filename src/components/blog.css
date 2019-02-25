@@ -1,4 +1,11 @@
 .comment-author {
+    margin: 0;
     color: blue;
     font-weight: bold;
+    border: solid 1px black;
+    background: lightgrey;
+}
+
+.comment-rating {       
+    border: solid 1px black;   
 }

@@ -21,7 +21,7 @@ export class Footer extends React.Component {
             <div className="row">
                 <div className="footer">
                     <ul className="copyright">
-                        <li>&copy; Untitled. All rights reserved.</li>
+                        <li>&copy; MyEducation. All rights reserved.</li>
                         <li>Author: Debra O.</li>
                     </ul>
                 </div>

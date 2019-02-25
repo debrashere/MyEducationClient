@@ -33,7 +33,7 @@ export const createToolSuccess = (tool) => ({
 export const createTool = (userName, title, url, description, price, rating) =>  (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     dispatch({type: types.CREATE_TOOL});
-    fetch(`${API_BASE_URL}/tools`, {
+    return ( fetch(`${API_BASE_URL}/tools`, {
        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -44,7 +44,8 @@ export const createTool = (userName, title, url, description, price, rating) => 
     })      
        .then(response => response.json())      
        .then(tool => { 
-           dispatch(createToolSuccess(tool));
+            dispatch(createToolSuccess(tool));
+            return Promise.resolve();  
        })
        .catch(err => {
            const {code} = err;
@@ -52,17 +53,21 @@ export const createTool = (userName, title, url, description, price, rating) => 
                code === 401
                    ? 'Unable to create tool at this time'
                    : 'Failed to create tool, try again';
-           dispatch(toolsError(message));
-           throw new SubmissionError({             
-            _error:  message
-          }) 
+            dispatch(toolsError(message));
+             return Promise.reject(  
+                 new SubmissionError({             
+                _error:  message            
+             }) 
+          )
        })
+    )
 };
 
 export const updateTool = ( id, title, url, description, price, rating) =>  (dispatch, getState) => {
     const authToken = getState().auth.authToken; 
     dispatch({type: types.UPDATE_TOOL});   
-    return fetch(`${API_BASE_URL}/tools/${id}`, {
+    return (
+        fetch(`${API_BASE_URL}/tools/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -74,16 +79,24 @@ export const updateTool = ( id, title, url, description, price, rating) =>  (dis
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(tool => {    
-            dispatch(updateToolSuccess(tool)) })        
+            dispatch(updateToolSuccess(tool));
+            return Promise.resolve(); 
+        })       
         .catch(err => {
             const {reason, message} = err;
-            dispatch(toolsError(message));
+            dispatch(toolsError(message)); 
+            let errorMeaage =  reason === 'ValidationError'   
+                ? message
+                : 'Failed to update tool, try again';      
             if (reason === 'ValidationError') {
-                throw new SubmissionError({             
-                    _error:  message
-                  }) 
-            }
-        });
+                 return Promise.reject(
+                     new SubmissionError({             
+                     _error:  errorMeaage
+                    }) 
+                 );  
+            }        
+        })
+    )
 };
 
 export const fetchTools = () => (dispatch, getState) => {
@@ -100,7 +113,9 @@ export const fetchTools = () => (dispatch, getState) => {
         })
         .then(response => response.json())
         .then(tools => { 
-            dispatch(fetchToolsSuccess(tools)) })
+            dispatch(fetchToolsSuccess(tools));
+            return Promise.resolve();  
+        })
         .catch(err => {
             const {code} = err;
             const message =
@@ -108,9 +123,11 @@ export const fetchTools = () => (dispatch, getState) => {
                     ? 'Your are not authorize.  Please log in.'
                     : 'Failed to fetch posts tool, try again';
             dispatch(toolsError(message));
-            throw new SubmissionError({             
+            return Promise.reject(
+                new SubmissionError({             
                 _error:  message
-              })         
+                })
+            )          
         })
     )
  };

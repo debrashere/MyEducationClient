@@ -3,21 +3,27 @@ import {
     CLEAR_AUTH,
     AUTH_REQUEST,
     AUTH_SUCCESS,
-    AUTH_ERROR
+    AUTH_ERROR,
+    AUTH_VALIDATION_OPTIONS
 } from '../actions/auth';
 
 const initialState = {
     authToken: null, // authToken !== null does not mean it has been validated
     currentUser: null,
     loading: false,
-    error: null
+    error: null,
+    valdationOptions: true
 };
 
-export const authReducer = (state = initialState, action) => {   
+export const authReducer = (state = initialState, action) => { 
     if (action.type === SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
             authToken: action.authToken
         });
+    } else if (action.type === AUTH_VALIDATION_OPTIONS) {       
+        return Object.assign({}, state, {
+            valdationOptions: action.options 
+        });        
     } else if (action.type === CLEAR_AUTH) {       
         return Object.assign({}, state, {
             authToken: null,

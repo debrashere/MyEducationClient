@@ -7,7 +7,7 @@ const initialState = {
     error: null
 };
 
-export const blogsReducer = (state = initialState, action) => { 
+export const blogsReducer = (state = initialState, action) => { ; 
     if (action.type === types.CREATE_BLOG) {
         return Object.assign({}, state, {       
             blog: {},
