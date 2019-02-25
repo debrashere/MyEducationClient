@@ -11,19 +11,14 @@ const initialState = {
     authToken: null, // authToken !== null does not mean it has been validated
     currentUser: null,
     loading: false,
-    error: null,
-    valdationOptions: true
+    error: null
 };
 
 export const authReducer = (state = initialState, action) => { 
     if (action.type === SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
             authToken: action.authToken
-        });
-    } else if (action.type === AUTH_VALIDATION_OPTIONS) {       
-        return Object.assign({}, state, {
-            valdationOptions: action.options 
-        });        
+        });       
     } else if (action.type === CLEAR_AUTH) {       
         return Object.assign({}, state, {
             authToken: null,
