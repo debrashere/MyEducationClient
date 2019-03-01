@@ -4,7 +4,7 @@ import BlogsForm from '../components/blog-form';
 import Blog from '../components/blog';
 import { fetchBlog } from '../actions/blogsActions';
 import requiresLogin from '../components/requires-login';
- 
+
 /*
     Displays blogging content for a specific Tool
     Input area to allow user to add more commits
@@ -12,11 +12,11 @@ import requiresLogin from '../components/requires-login';
 class BlogPage extends React.Component {
 
     componentDidMount() {  
-       this.props.dispatch(fetchBlog(this.props.match.params.id))                 
+       this.props.dispatch(fetchBlog(this.props.match.params.id))                
     }
     
     render() {
-        let   error = '';  
+        let   error = '';                    
         let params =  { toolId: this.props.match.params.id,
                             blog: this.props.blog };                             
         let blogParams = { blog: this.props.blog,
@@ -25,7 +25,7 @@ class BlogPage extends React.Component {
         <section  className="wrapper  special">                      
             <BlogsForm params={params} />
             <h2>Comments</h2>
-            {error} 
+            {error}      
               <Blog {...blogParams} />
         </section>                        
         )

@@ -6,8 +6,8 @@ export function Blog(props) {
     let blogComments = [];
     let blogTitle = '';
     let ratingsSummary = [];   
-    let firstToComment;      
-     
+    let firstToComment;           
+
    // summarize each distinct rating and count of that rating
    // render rating as stars with count of distinct users who gave that rating
     let formatRatingsSummary = () => {
@@ -58,8 +58,8 @@ export function Blog(props) {
     }    
 
     return (
-        <div>
-            {firstToComment}
+        <div>      
+            {firstToComment}        
             {blogTitle}  
             <div className='flex-container'>                                            
                 {blogComments}        
