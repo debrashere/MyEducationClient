@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Blogs from '../components/blogs';
 import { fetchBlogs } from '../actions/blogsActions';
 import requiresLogin from '../components/requires-login';
+import {Link} from 'react-router-dom';
  
 /*
     Displays all tools which have blogging entries. 
@@ -13,7 +14,7 @@ class BlogsPage extends React.Component {
       this.props.dispatch(fetchBlogs());                
     }
 
-    render() {
+    render() { 
     let loadingMsg;
     let   error = '';   
     if (this.props.loading === true)  {         
@@ -24,8 +25,16 @@ class BlogsPage extends React.Component {
 
         return (
         <section  className="wrapper  special">                       
-            <h2>Educational Tools with sComments</h2>
-            <div><em>Note: </em> This page only displays Tools that have blog entries.</div>
+            <h2>Educational Tools with Comments</h2>
+            <div>
+                <p>
+                  This page only displays Tools for which users have entered comments. 
+                  See which tools people are commenting about most.  <br />
+                  Don't see a Tool you'd like to add comments to, go the&nbsp;
+                  <Link to="/tools">Educational Tools</Link>&nbsp; page, find the tool 
+                  and click on "View Comments" link.
+                 </p>                
+            </div>
             {error} 
             {loadingMsg} 
             <Blogs blogs={this.props.blogs} />
