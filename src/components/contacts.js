@@ -14,7 +14,7 @@ export class Contacts extends React.Component {
 						<div className="flex-item-tool-section">
 							<section className="box">
 								<h2>Contacts</h2>
-                                 <p><em>Contact via slack</em></p>
+                                 <p><em>Contact via debrashere@gmail.com</em></p>
                              </section>
 						</div>
 				</div>		

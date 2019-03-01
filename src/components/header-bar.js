@@ -20,18 +20,36 @@ export class HeaderBar extends React.Component {
         }
     }    
     render() {
+        /*
+        // determine which menu item should be highlighted
+        let isMenuItemSelected = (menuItem) => {
+            // following path's should have "Home" selected on navigation
+            let location =  window.location.href;
+            let path = location.indexOf('home') > -1
+                || location.indexOf('dashboard') > -1
+                || location.indexOf('landingpage') > -1
+                ? "home" : location;
+                          
+            if ( path.indexOf(menuItem) > -1)
+            {               
+                return "active";
+            }
+           return "inactive";
+        } 
+        */       
+
         // Only render the log out button if we are logged in
-        let logOutButton;
+        let logOutButton;        
         if (this.props.loggedIn) {
             logOutButton = (
-               <Link to="#" onClick={() => this.logOut()}> | Log out</Link>
+               <Link to="#"  onClick={() => this.logOut()}> | Log out</Link>
             );
         }
         // Only render login button if user is not logged in
         let logInButton;
         if (!this.props.loggedIn) {
             logInButton = (
-                <Link to="/login" > | Log In</Link>
+                <Link to="/login"> | Log In</Link>
             );
         } 
          // Only render Sign Up button if user is not logged in 
@@ -41,12 +59,14 @@ export class HeaderBar extends React.Component {
                 <Link to="/register"> | Sign Up</Link>                                     		                  
             );
         } 
+     
+        
         let  menuButton = (             
            <Link  to="" onClick={() => this.menuFunction()}  className="icon" >
                 <i className="fa fa-bars"></i> 
             </Link>                                                                 		                  
         );         
-
+        
         // Only render the user information if the user is logged in
         let userInfo;
         if (this.props.loggedIn) {               
@@ -60,7 +80,7 @@ export class HeaderBar extends React.Component {
         return (      
             <header> 
                 <nav className="topnav" id="myTopnav">
-                   <Link to="/" className="active">Home</Link>                   			                                    		                 
+                   <Link to="/" className='active'>Home</Link>                   			                                    		                 
                    <Link to="/tools"> | Educational Tools</Link> 
                    <Link to="/comments"> | Comments</Link>           
                    {signUpButton}                                   		
