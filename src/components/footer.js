@@ -12,8 +12,8 @@ export class Footer extends React.Component {
                     <section className="flex-item-footer">          
                         <ul className="horizontal">
                             <li><a href="/toolsOverview">About My Educational Tools</a></li>
-                            <li><a href="/terms">Terms and Conditions</a></li>
-                            <li><a href="/contacts">Contacts</a></li>
+                            <li><a href="/terms"> Terms and Conditions</a></li>
+                            <li><a href="/contacts"> Contacts</a></li>
                         </ul>
                     </section>                    
                 </div>

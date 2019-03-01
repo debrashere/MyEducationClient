@@ -1,20 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus } from 'redux-form';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {createTool} from '../actions/toolsActions';
 import Input from '../components/input';
 import {required, nonEmpty, isTrimmed, isUrlFormatValid, isNumeric, isRatingValid} from '../validators';
 
 export class ToolsForm extends React.Component {  
+    parsedUrl = (value) => {
+        // make sure the url contains the protocol
+        // default to http if protocol is missing        
+        let parsedUrl = value;      
+        if (!/^https?:\/\//i.test(parsedUrl)) {
+            parsedUrl = 'http://' + parsedUrl;                   
+        }
+        return parsedUrl;
+    }
+
     // Submit the new tool data  
- 
     onSubmit(values) {
+        let parsedUrl =   this.parsedUrl(values.url); 
         return this.props
             .dispatch(createTool(this.props.currentUser.username, values.title,
-                values.url, values.description, values.price,
-                values.rating))                               
-    }
+                parsedUrl, values.description, values.price,
+                values.rating)) 
+    }              
 
     render() {
         const { error, handleSubmit, pristine, reset, submitting, submitSucceeded } = this.props
@@ -25,21 +35,17 @@ export class ToolsForm extends React.Component {
                 {<strong>{error}</strong>}                 
             </div>
         }
-        let successMessage;
-        if (submitSucceeded === true){
-            successMessage =  
-            <div className="message-success">
-              <strong>Submission successful</strong>}                 
-            </div>
+        
+        if ( submitSucceeded ) {         
+            return <Redirect to="/tools" />
         }
+    
         return ( 
             <div> 
                 <h2>Tools Form</h2>   
-                <form className="add-form form" 
+                <form className="form"
                     onSubmit={handleSubmit(values => this.onSubmit(values) )}> 
-
                     {formattedError} 
-                    {successMessage}   
                     <label htmlFor="title">Title</label>
                     <Field
                         component={Input}
@@ -67,6 +73,7 @@ export class ToolsForm extends React.Component {
                         <Field component={Input}
                         type="text" 
                         name="price"
+                        placeholder="Number between 1 and 5"
                         validate={[required, nonEmpty, isTrimmed, isNumeric]}
                     />
 
@@ -97,13 +104,15 @@ export class ToolsForm extends React.Component {
     }
 }
 
-export const mapStateToProps = state => ({
-    currentUser:{
-        firstName: "beebee",
-        lastName: "sanders",
-        username: "bsanders" }
-        // state.auth.currentUser
+const mapStateToProps = state => ({
+    currentUser: state.auth.currentUser
 });
+
+/*
+export const mapStateToProps = state => ({
+    currentUser:state.auth.currentUser
+});
+*/
 
 ToolsForm = connect(
     mapStateToProps

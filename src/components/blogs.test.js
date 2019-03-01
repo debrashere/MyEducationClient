@@ -64,12 +64,12 @@ describe('<Blogs />', () => {
         shallow(<Blogs {...props} />);
     });
     
-    it('Renders link to view blog', () => {     
+    it('Renders link to view comment', () => {     
         const wrapper = shallow(<Blogs {...props} />);        
         const links = wrapper.find('Link').getElements();
       
         for(let index=0; index < thisBlogs.length ; index++) { 
-            expect(links[index].props.to).toEqual(`blog/${thisBlogs[index].toolId._id}`);                                        
+            expect(links[index].props.to).toEqual(`comment/${thisBlogs[index].toolId._id}`);                                        
          }           
     });  
 });

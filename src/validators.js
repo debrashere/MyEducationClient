@@ -1,3 +1,4 @@
+
 export const required = ( value ) => {   
     return value !== undefined ?  undefined : 'Required';
 };
@@ -26,14 +27,24 @@ export const isNumeric =  ( value ) => {
         return `Must be numeric`;
     }
 };  
+
 export const isUrlFormatValid = ( value ) => {
-    let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-          if (!regexp.test(value)) {
-            return 'This is not a valid URL format'; }
-  };
     
+    let urlToCheck = value;
+    if (!/^https?:\/\//i.test(urlToCheck)) {
+        urlToCheck = 'http://' + urlToCheck;
+    }
+
+    try {
+         new URL(urlToCheck);
+    }
+    catch (error) {
+        return 'This is not a valid URL format'; 
+    }
+};
+
 export const validateField = (title, value, validations) => { 
-    if (validations && validations.length > 0) {
+     if (validations && validations.length > 0) {
         let result = [];
         for (let index = 0; index < validations.length; index++) {
             let validated = validations[index](value);   
@@ -44,6 +55,7 @@ export const validateField = (title, value, validations) => {
         }
         return result;
     }
+    return undefined;
 }
 
 export const matches = field => (value, allValues) =>

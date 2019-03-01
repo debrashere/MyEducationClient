@@ -12,7 +12,7 @@ export function Blogs(props) {
             <div className='blog' key={index}>     
                 <span className='item'>{blog.toolId.title}</span>              
                 <span className='item'>(Blog has {blog.comments.length} comments) </span>
-                <span className='item'><Link to={`blog/${blog.toolId._id}`}>View Blog</Link></span>              
+                <span className='item'><Link className="styled-link" to={`comment/${blog.toolId._id}`}>View Comments</Link></span>              
             </div>                    
         </div>);
         }); 

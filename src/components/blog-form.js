@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
 import {createBlog, updateBlog, deleteBlog} from '../actions/blogsActions';
-import Input from '../components/input';
+import Input from './input';
 import {required,  isTrimmed,  isNumeric, isRatingValid, nonEmpty, validateField} from '../validators';
 
 let errors = [];
@@ -46,7 +46,6 @@ export class BlogsForm extends React.Component {
     
     // executed when adding blog comments after form successfully updates
     submit(values) {    
-       
         // if comments already exist for this blog then add new comment                
         if (this.props.blog && this.props.blog.toolId) { 
             const comments = 
@@ -60,15 +59,14 @@ export class BlogsForm extends React.Component {
     }
 
     onSubmit(values) { 
-
         // perform validation before submitting login
-        // Validation done here because it's optional depending if demo login 
+        // Validation done here because it's optional depending if "delete my comments"
         // is clicked which does not requrire validation       
         validationErrors = ''; 
         validationErrorMessage = '';        
         errors = [];
         errors.push(validateField('Comment', values.content, [required, nonEmpty, isTrimmed]));
-        errors.push(validateField('Rating', values.rating, [required, isTrimmed, isNumeric, isRatingValid]));          
+        errors.push(validateField('Rating', values.rating, [required, isTrimmed, isNumeric, isRatingValid]));                  
         if (errors.length > 0) {
             for (let index=0; index< errors.length; index++) {           
                 if (errors[index].length > 0) {
@@ -111,7 +109,7 @@ export class BlogsForm extends React.Component {
         }
         return (    
             <div> 
-                <h2>Blog</h2>    
+                <h2>Educational Tool Comments</h2>    
                 <form className="form">                        
 
                     {error && <strong>{error}</strong>}
@@ -123,8 +121,7 @@ export class BlogsForm extends React.Component {
                     <label htmlFor="content">Comment</label>
                     <Field component={Input} 
                         type="text" 
-                        name="content"
-                        className="flex-item-tool-section"                      
+                        name="content"                              
                         /> 
                     
                     <label htmlFor="rating">Rating</label>

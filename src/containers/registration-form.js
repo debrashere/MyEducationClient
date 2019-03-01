@@ -10,7 +10,7 @@ const passwordLength = length({min: 10, max: 72});
 const matchesPassword = matches('password');
 
 export class RegistrationForm extends React.Component {
-    onSubmit(values) {
+    onSubmit(values) {    
         const {username, password, firstName, lastName} = values;
         const user = {username, password, firstName, lastName};
         return this.props
@@ -20,8 +20,12 @@ export class RegistrationForm extends React.Component {
     }
 
     render() {
+        if ( this.props.submitSucceeded ) {         
+            return <Redirect to="/dashboard" />
+        }
+
         return (
-            <section className="home">
+            <section  className="wrapper  special" tabIndex="0">
             <h2>Register for My Educational Tools App</h2>                 
                 <form
                     className="form"

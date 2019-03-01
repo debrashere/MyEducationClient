@@ -17,6 +17,7 @@ const store = createStore(
     applyMiddleware(thunk)
 );
 
+// set the base url.  To be used to build full url for "Link"
 // Hydrate the authToken from localStorage if it exist
 const authToken = loadAuthToken();
 if (authToken) {

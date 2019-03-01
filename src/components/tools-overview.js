@@ -9,20 +9,17 @@ export function ToolsOverview(props) {
              <div className='flex-item'>
                 <h2>Educational Tools Overview</h2>
              
-                <strong>Tools </strong>
-                <textarea>
-                        Access to sites with reviews of educational sites geared towards children.
-                 </textarea>
+                 <strong>Educational Tools  </strong>
+                 <p>
+                          View list of tools users have submitted to this app.
+                          You will be able to link to the comments page for a specifice tool from here.
+                 </p>
 
-                 <strong>Blogs  </strong>
-                 <textarea>
-                          View list of tools for which users have made blog entries.
-                 </textarea>
-
-                 <strong>Blog  </strong>
-                 <textarea>                  
-                        View blog entries for a specific tool.
-                 </textarea>                                                                     
+                 <strong>Comments  </strong>
+                 <p>                  
+                        View list of tools for which users have added comments.
+                        This allows you to quickly see what tools users are commenting about the most.
+                 </p>                                                                     
              </div>
         </div>) 
 }

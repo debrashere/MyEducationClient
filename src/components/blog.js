@@ -5,7 +5,8 @@ import './blog.css';
 export function Blog(props) { 
     let blogComments = [];
     let blogTitle = '';
-    let ratingsSummary = [];         
+    let ratingsSummary = [];   
+    let firstToComment;      
      
    // summarize each distinct rating and count of that rating
    // render rating as stars with count of distinct users who gave that rating
@@ -27,6 +28,14 @@ export function Blog(props) {
             return formatted;
      }
 
+     // if there are no comments yet, display a meesage 
+     if (!props.blog || !props.blog.comments || props.blog.comments.length === 0) {
+        firstToComment = 
+            <div>
+                Be the first to add a comment for this tool. <br />
+                Enter your comment and rating above and submit.
+            </div>                                                                    
+     }
     // render the Tool title and rating
     if (props.blog && props.blog.comments ) {
         blogTitle = 
@@ -50,6 +59,7 @@ export function Blog(props) {
 
     return (
         <div>
+            {firstToComment}
             {blogTitle}  
             <div className='flex-container'>                                            
                 {blogComments}        

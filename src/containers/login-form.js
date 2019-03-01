@@ -6,16 +6,17 @@ import Input from '../components/input';
 import {login} from '../actions/auth';
 import {Redirect} from 'react-router-dom';
 import {required, nonEmpty, validateField} from '../validators';
+
 let errors = [];
 let error;
 let validationErrors;
+
 export class LoginForm extends React.Component {
     
-    onSubmit(values) { 
-
+    onSubmit(values) {     
         // perform validation before submitting login
         // Validation done here because it's optional depending if demo login 
-        // is clicked which does not requrire validation
+        // is clicked which does not require validation
         error = '';       
         validationErrors = '';         
         errors = [];
@@ -65,19 +66,20 @@ export class LoginForm extends React.Component {
 
         return (
             <section  className="wrapper  special" tabIndex="0"> 
-            <h2>Welcome to My Educational Tools App</h2>          
+            <h2>Welcome to My Educational Tools App</h2>         
                 <form  
-                    className="form">
-                    {error}
-                    <label htmlFor="username">Username</label>
+                    className="form"
+                >
+                    {error}                                                                                                          
+                    <label htmlFor="username">Username</label>                    
                     <Field 
                         component={Input}                                                            
                         type="text"
                         name="username"
                         id="username"
                         autocomplete="username"  
-                        className="input-username"                                                
-                    />
+                        className="input-username" 
+                    />    
                     <label htmlFor="password">Password</label>
                     <Field  
                         component={Input}                                                                                
@@ -85,7 +87,7 @@ export class LoginForm extends React.Component {
                         name="password"
                         value id="password"
                         autocomplete="current-password"
-                        className="input-password"                                                         
+                        className="input-password"                                                                        
                     /> 
                        <button 
                             disabled={this.props.pristine || this.props.submitting}                   

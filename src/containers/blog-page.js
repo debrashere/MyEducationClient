@@ -16,15 +16,15 @@ class BlogPage extends React.Component {
     }
     
     render() {
-    let   error = '';  
+        let   error = '';  
         let params =  { toolId: this.props.match.params.id,
-                        blog: this.props.blog }; 
-     let blogParams = { blog: this.props.blog,
+                            blog: this.props.blog };                             
+        let blogParams = { blog: this.props.blog,
                         currentUser: this.props.currentUser };         
         return (
         <section  className="wrapper  special">                      
             <BlogsForm params={params} />
-            <h2>Blog Comments</h2>
+            <h2>Comments</h2>
             {error} 
               <Blog {...blogParams} />
         </section>                        

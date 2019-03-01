@@ -19,7 +19,6 @@ import {ToolsOverview} from '../components/tools-overview';
 import {Contacts} from '../components/contacts';
 import {Terms} from '../components/terms';
 
-
 export class App extends React.Component {
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
@@ -54,15 +53,15 @@ export class App extends React.Component {
         return (
             <div className="app">
                 <HeaderBar />
-                <Banner />                  
+                <Banner />  
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/landingpage" component={LandingPage} />
                 <Route exact path="/login" component={LoginForm} />                                
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationForm} />  
-                <Route exact path="/blog/:id" component={BlogPage} />                         
-                <Route exact path="/blogs" component={BlogsPage} />
-                <Route exact path="/tools" component={ToolsPage} />                  
+                <Route exact path="/comment/:id" component={BlogPage} />                         
+                <Route exact path="/comments" component={BlogsPage} />
+                <Route exact path="/tools" component={ToolsPage} />                                           
                 <Route exact path="/toolsform/:id" component={ToolsForm} />
                 <Route exact path="/toolseditform/:id" component={EditToolsForm} />
                 <Route exact path="/toolsOverview" component={ToolsOverview} />  

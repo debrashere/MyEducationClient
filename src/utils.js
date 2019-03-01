@@ -16,3 +16,7 @@ export const convertNumberToStars = (rating) => {
         output.push(<i className="fa fa-star-o star-style" aria-hidden="true"  key={i*6}></i> );
     return  output
 };
+export const baseUrl = () => {
+    const baseUrl = window.location.protocol + '//' + window.location.host; 
+    return baseUrl;
+}

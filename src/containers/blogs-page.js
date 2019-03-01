@@ -24,7 +24,7 @@ class BlogsPage extends React.Component {
 
         return (
         <section  className="wrapper  special">                       
-            <h2>Blogs</h2>
+            <h2>Educational Tools with sComments</h2>
             <div><em>Note: </em> This page only displays Tools that have blog entries.</div>
             {error} 
             {loadingMsg} 

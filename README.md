@@ -61,7 +61,8 @@ Please
   * **asanders**: Able to view and edit tools.  Able to view and add blogging comments.
   * Also you may click on "Demo Log in" from the Login page.
  
-
+## Images
+Image by Mimzy on Pixabay: background image
 ## Versioning
 
  [Github](https://github.com/) is used for versioning.
