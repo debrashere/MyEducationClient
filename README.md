@@ -24,31 +24,39 @@ You are able to view rating of tools that users have submitted to the site.
 * **Price**: The price of the tool.
 * **Rating**: Rating between 1 and 5 given by the user.
 
-## Blogs
+## Comments
 You are able to view rating of tools that users have submitted to the site.
 
-* **Comment**: Blog entry by a user.
-* **Author**: Username of the logged in user posting the Blog comment.
+* **Comment**: Comment entry by a user.
+* **Author**: Username of the logged in user posting the comment.
 
 ## Screen Shots
 
 ### Login 
-![Login ](https://github.com/debrashere/React-Capstone-Layout/blob/master/React-Capstone-Login-Page.png?raw=true)
+![Login ](https://github.com/debrashere/React-Capstone-Layout/blob/master/login.png?raw=true)
 
 ### Registration 
-![Registration ](https://raw.githubusercontent.com/debrashere/React-Capstone-Layout/master/React-Capstone-Register-Page.png)
+![Registration ](https://github.com/debrashere/React-Capstone-Layout/blob/master/register.png?raw=true)
 
 ### Dashboard 
-![Dashboard ](https://github.com/debrashere/React-Capstone-Layout/blob/master/React-Capstone-Dashboard.png?raw=true)
+![Dashboard ](https://github.com/debrashere/React-Capstone-Layout/blob/master/dashboard.png?raw=true)
 
 ### Tools 
-![Tools ](https://github.com/debrashere/React-Capstone-Layout/blob/master/React-Capstone-Tools-Page.png?raw=true)
+![Tools ](https://github.com/debrashere/React-Capstone-Layout/blob/master/tools.png?raw=true)
 
-### Blogs 
-![Blogs ](https://github.com/debrashere/React-Capstone-Layout/blob/master/React-Capstone-Blogs-Page.png?raw=true)
+### Comments 
+![Comments ](https://github.com/debrashere/React-Capstone-Layout/blob/master/comments.png?raw=true)
 
-### Blog 
-![Blog ](https://github.com/debrashere/React-Capstone-Layout/blob/master/React-Capstone-Blog-Page.png?raw=true)
+### Comment 
+![Tool Comment page ](https://github.com/debrashere/React-Capstone-Layout/blob/master/comment.png?raw=true)
+
+### Add Tool 
+![Add Tool ](https://github.com/debrashere/React-Capstone-Layout/blob/master/AddTool.png?raw=true)
+
+### Edit Tool 
+![Edit Tool ](https://github.com/debrashere/React-Capstone-Layout/blob/master/EditTool.png?raw=true)
+
+
 
 ### React Capstone - How to use live demo:
 Login or Register
@@ -58,7 +66,7 @@ Please
 #### Test logins:
 
   Password is the same for all mocked users **Mypassw0rd**
-  * **asanders**: Able to view and edit tools.  Able to view and add blogging comments.
+  * **asanders**: Able to view and edit tools.  Able to view and add comments.
   * Also you may click on "Demo Log in" from the Login page.
  
 ## Images
