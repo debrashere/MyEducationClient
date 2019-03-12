@@ -15,9 +15,8 @@ export class Banner extends React.Component {
     render() {    
         return (            
             <section id="banner">         
-                <h1>Welcome to My Educational Tools</h1>
-                <p>View educational tools, ratings, read and post comments.</p>         
-                <Link className="styled-link" to="/tools">View list of tools</Link>
+                <h1>My Educational Tools</h1>                
+                <Link className="styled-link" to="/tools">View list of educational tools</Link>
                 <Link className="styled-link" to="/comments">See what user's are commenting</Link>
 
             </section>   

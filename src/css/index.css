@@ -1,6 +1,26 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Raleway:700,400);
 
+.test-border-red {
+	border: red solid 3px;
+}
+
+.test-border-blue {
+	border: blue solid 3px;
+}
+
+.test-border-green {
+	border: green solid 3px;
+}
+
+.test-border-gold {
+	border: bold solid 3px;
+}
+
+.test-border-purple {
+	border: purple solid 3px;
+}
+
 /* Basic */
 
 	body {
@@ -1095,8 +1115,7 @@ button {
 	align-items: left
 	;
   max-width: 100%; 
-  margin: 1em 1em 2em 1em;	
-  /* border: black 2px solid; */  
+  margin: 1em 1em 2em 1em;	  
 }
 .flex-widget-container {
   display: flex;
@@ -1107,7 +1126,6 @@ button {
 	;
   max-width: 100%; 
   margin: 1em 1em 2em 1em;	
-  /* border: black 2px solid; */  
 }
 
 .flex-item { 
@@ -1208,17 +1226,6 @@ button {
 	.flex-item-widget-section {width: 400px; max-height: 300px;}	
 	.flex-item-tool-section {max-width: 550; max-height: 300px;}	
 	* {font-size: 16px;}
-	#banner {
-		padding: 4em 0em 13em;
-		height: 40%;
-	}
-		#banner h2 {
-			font-size: 1em;
-			line-height: 1.25em;
-		}
-		#banner p {
-			font-size: 0.5em;
-		}
 
 		h1 { font-size: 12px; }
 		h2 { font-size: 0.70em;	}
@@ -1238,6 +1245,7 @@ button {
 	.flex-item { max-width: 260px;  }
 	.flex-item-widget-section {width: 260px; max-height: 300px;}	
 	.flex-item-tool-section {max-width: 260px; max-height: 300px;}	
+	/*
 	#banner {
 		padding: 4em 0em 13em;
 		height: 40%;
@@ -1249,6 +1257,7 @@ button {
 		#banner p {
 			font-size: 0.5em;
 		}
+		*/
 		h1 { font-size: 12px; }
 		h2 { font-size: 0.70em;	}
 		h3 { font-size: 0.60em; }
@@ -1271,7 +1280,8 @@ button {
 	form {
 		margin: 0 0 2em 0;
 		max-width: 300px;	
-	}	
+	}
+	/*	
 	#banner {
 		padding: 0.4em 0em 5em;
 		height: 40%;
@@ -1283,6 +1293,7 @@ button {
 		#banner p {
 			font-size: 0.75em;
 		}	
+		*/
 		h1 { font-size: 16px; }
 		h2 { font-size: 0.80em;	}
 		h3 { font-size: 0.70em; }
@@ -1309,7 +1320,8 @@ button {
 	 .flex-item { max-width: 750px;  }
 	 .flex-item-widget-section {width: 400px; max-height: 300px;}	
 	 .flex-item-tool-section {max-width: 700px; max-height: 300px;}	 
-	 form { margin: 0 0 2em 0; 	max-width: 700px; }		
+	 form { margin: 0 0 2em 0; 	max-width: 700px; }	
+	 /*	
 	 #banner {
 		 padding: 0.5em 0em 13em;
 		 height: 40%;
@@ -1324,6 +1336,7 @@ button {
 		 #banner p {
 			 font-size: 1em;
 		 }
+		 */
 	 * {font-size: 20px;}	
 		h1 { font-size: 16px; }
 		h2 { font-size: 0.80em;	}
@@ -1338,11 +1351,13 @@ button {
 		.edit-form{max-width: 500px;}  
 		h1 { font-size: 20px; }
 		textarea {max-width: 495px;} 
+		.flex-container {flex-direction: row; 	align-items: center;}
 		.flex-item {min-width: 400px; max-width: auto;}	
 		.flex-item-widget-section {width: 400px; height: 300px;}	
 		.flex-item-tool-section {max-width: 900; max-height: 300px;}	
 		* {font-size: 25px;}
 		form { margin: 0 0 2em 0; 	max-width: 800px; }		
+		/*
 		#banner {
 			padding: 2em 0em 13em;
 			height: 40%;
@@ -1354,6 +1369,7 @@ button {
 			#banner p {
 				font-size: 0.75em;
 			}	
+			*/
 			h1 { font-size: 20px; }
 			h2 { font-size: 0.90em;	}
 			h3 { font-size: 0.80em; }
@@ -1368,11 +1384,13 @@ button {
 	h1 { font-size: 40px; }
 	.edit-form {max-width: 500px;}  
 	textarea {max-width: 495px;} 
+	.flex-container {flex-direction: row; 	align-items: center;}
 	.flex-item {min-width: 400px; max-width: 800px;}	
 	.flex-item-widget-section {width: 400px; height: 300px;}	
 	.flex-item-tool-section {max-width: 900; max-height: 300px;}	
 	* {font-size: 25px;}
-	form { margin: 0 0 2em 1em; 	max-width: 1000px; }			
+	form { margin: 0 0 2em 1em; 	max-width: 1000px; }	
+	/*		
 	#banner {
 		padding: 4em 0em 13em;
 		height: 50%;
@@ -1384,6 +1402,7 @@ button {
 		#banner p {
 			font-size: 1.0em;
 		}	
+		*/
 		h1 { font-size: 20px; }
 		h2 { font-size: 0.90em;	}
 		h3 { font-size: 0.80em; }

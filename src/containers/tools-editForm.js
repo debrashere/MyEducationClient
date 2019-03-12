@@ -90,7 +90,7 @@ export class ToolsEditForm extends React.Component {
                         component={Input} 
                         type="text" 
                         name="price"
-                        validate={[required, isNumeric]}
+                        validate={[required, isNumeric]}                      
                         placeholder="number between 1 and 5"
                     />
 

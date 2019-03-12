@@ -1,74 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
-import {Link} from 'react-router-dom';
-
+import {CustomMenu} from './customMenu';
+let currentRoute ="/home";
+ 
 export class HeaderBar extends React.Component {
-    logOut() {
-        this.props.dispatch(clearAuth());
-        clearAuthToken();
-    }
-    // Determines whether to display horizontal menu
-    // or dropdown vertial menu
-    menuFunction() {
-        var x = document.getElementById("myTopnav");      
-        if (x.className === "topnav") {
-          x.className += " responsive";
-        } else {
-          x.className = "topnav";
-        }
-    }    
-    render() {
-        /*
-        // determine which menu item should be highlighted
-        let isMenuItemSelected = (menuItem) => {
-            // following path's should have "Home" selected on navigation
-            let location =  window.location.href;
-            let path = location.indexOf('home') > -1
-                || location.indexOf('dashboard') > -1
-                || location.indexOf('landingpage') > -1
-                ? "home" : location;
-                          
-            if ( path.indexOf(menuItem) > -1)
-            {               
-                return "active";
-            }
-           return "inactive";
-        } 
-        */       
-
-        // Only render the log out button if we are logged in
-        let logOutButton;        
-        if (this.props.loggedIn) {
-            logOutButton = (
-               <Link to="#"  onClick={() => this.logOut()}> | Log out</Link>
-            );
-        }
-        // Only render login button if user is not logged in
-        let logInButton;
-        if (!this.props.loggedIn) {
-            logInButton = (
-                <Link to="/login"> | Log In</Link>
-            );
-        } 
-         // Only render Sign Up button if user is not logged in 
-        let signUpButton;
-        if (!this.props.loggedIn) {
-            signUpButton = (
-                <Link to="/register"> | Sign Up</Link>                                     		                  
-            );
-        } 
-     
-        
-        let  menuButton = (             
-           <Link  to="" onClick={() => this.menuFunction()}  className="icon" >
-                <i className="fa fa-bars"></i> 
-            </Link>                                                                 		                  
-        );         
+    componentWillUpdate() {
+         if (this.props && this.props.route)
+            currentRoute = this.props.route;
+    } 
+ 
+    render() {                             
         
         // Only render the user information if the user is logged in
         let userInfo;
+        let menuParams = {route: currentRoute, loggedIn: this.props.loggedIn};
         if (this.props.loggedIn) {               
             userInfo = (                 
                 <div className="header-user-info">
@@ -78,16 +23,8 @@ export class HeaderBar extends React.Component {
             );
         }       
         return (      
-            <header> 
-                <nav className="topnav" id="myTopnav">
-                   <Link to="/" className='active'>Home</Link>                   			                                    		                 
-                   <Link to="/tools"> | Educational Tools</Link> 
-                   <Link to="/comments"> | Comments</Link>           
-                   {signUpButton}                                   		
-                   {logInButton}
-                   {logOutButton}
-                   {menuButton}
-                </nav>
+            <header>    
+                <CustomMenu {...menuParams} dispatch={this.props.dispatch} />
                 <div>
                     {userInfo}
                 </div>
@@ -98,7 +35,8 @@ export class HeaderBar extends React.Component {
 
 const mapStateToProps = state => ({  
     currentUser: state.auth.currentUser,
-    loggedIn: state.auth.currentUser !== null
+    loggedIn: state.auth.currentUser !== null,
+    unlisten: state
 });
 
 export default connect(mapStateToProps)(HeaderBar);

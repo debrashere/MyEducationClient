@@ -77,7 +77,7 @@ export class LoginForm extends React.Component {
                         type="text"
                         name="username"
                         id="username"
-                        autocomplete="username"  
+                        autoComplete="username"  
                         className="input-username" 
                     />    
                     <label htmlFor="password">Password</label>
@@ -85,8 +85,8 @@ export class LoginForm extends React.Component {
                         component={Input}                                                                                
                         type="password"
                         name="password"
-                        value id="password"
-                        autocomplete="current-password"
+                        value id="password"    
+                        autoComplete="current-password"
                         className="input-password"                                                                        
                     /> 
                        <button 

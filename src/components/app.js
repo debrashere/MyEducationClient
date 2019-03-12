@@ -18,8 +18,15 @@ import {refreshAuthToken} from '../actions/auth';
 import {ToolsOverview} from '../components/tools-overview';
 import {Contacts} from '../components/contacts';
 import {Terms} from '../components/terms';
+let currentRoute;
 
 export class App extends React.Component {
+    componentWillMount() {
+        this.unlisten = this.props.history.listen((location, action) => {
+          currentRoute = `${location.pathname}${location.search}${location.hash}`
+        })      
+      }
+
     componentDidUpdate(prevProps) {
         if (!prevProps.loggedIn && this.props.loggedIn) {
             // When we are logged in, refresh the auth token periodically
@@ -32,6 +39,7 @@ export class App extends React.Component {
 
     componentWillUnmount() {
         this.stopPeriodicRefresh();
+        this.unlisten();
     }
 
     startPeriodicRefresh() {
@@ -52,7 +60,7 @@ export class App extends React.Component {
     render() {
         return (
             <div className="app">
-                <HeaderBar />
+                <HeaderBar  route={currentRoute}/>    
                 <Banner />  
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/landingpage" component={LandingPage} />
@@ -66,9 +74,9 @@ export class App extends React.Component {
                 <Route exact path="/toolseditform/:id" component={EditToolsForm} />
                 <Route exact path="/toolsOverview" component={ToolsOverview} />  
                 <Route exact path="/contacts" component={Contacts} /> 
-                <Route exact path="/terms" component={Terms} /> 
+                <Route exact path="/terms" component={Terms} />             
                 <Footer />                                            
-            </div>
+            </div>      
         );
     }
 }
@@ -78,5 +86,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-// Deal with update blocking - https://reacttraining.com/react-router/web/guides/dealing-with-update-blocking
 export default withRouter(connect(mapStateToProps)(App));

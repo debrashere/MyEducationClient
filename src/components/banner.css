@@ -1,12 +1,12 @@
 /* Banner */
 #banner {
-    background-image: url(../images/back-to-school-1576790_640.jpg);
+		background-image: url(../images/back-to-school-top_640.jpg);	
     background-position: center center;
     background-size: cover;
     color: #000000;
-    padding: 4em 0em 13em;
+    /* padding: 4em 0em 13em; */
     text-align: center;
-    height: 20%;
+		height: 200px;
 }
 
     #banner :last-child {
@@ -30,7 +30,7 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 	#banner {
-		padding: 4em 0em 13em;
+		/* padding: 4em 0em 13em; */
 		height: 20%;
 	}
 		#banner h2 {
@@ -45,7 +45,7 @@
   /* Small devices (portrait tablets and large phones, 600px and up) */
   @media only screen and (min-width: 600px) {
 	#banner {
-		padding: 4em 0em 13em;
+		/* padding: 4em 0em 13em; */
 		height: 20%;
 	}
 		#banner h1 {
@@ -60,7 +60,7 @@
   /* Medium devices (landscape tablets, 320px and up) */
   @media only screen and (min-width: 320px) {	
 	#banner {
-		padding: 0.4em 0em 5em;
+	/* 	padding: 0.4em 0em 5em; */
 		height: 20%;
 	}
 		#banner h1 {
@@ -74,11 +74,11 @@
   
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {	
-	#banner {
-		background-image: url(../images/back-to-school-1576790_1280.jpg);
-		padding: 0.5em 0em 13em;
-		height: 20%;
-	}
+		#banner {
+			background-image: url(../images/back-to-school-top_1920.jpg);	
+		/*	padding: 2em 0em 13em; */
+			height: 200px;
+		}
 		#banner h1 {
 			font-size: 1em;
 			line-height: .75em;
@@ -92,9 +92,9 @@
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {	
 	#banner {
-		background-image: url(../images/back-to-school-1576790_1280.jpg);
-		padding: 2em 0em 13em;
-		height: 40%;
+		background-image: url(../images/back-to-school-top_1920.jpg);	
+	/*	padding: 2em 0em 13em; */
+		height: 200px;
 	}
 		#banner h1 {
 			font-size: 1em;
@@ -107,11 +107,11 @@
 
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {			
-	#banner {
-		background-image: url(../images/back-to-school-1576790_1280.jpg);
-		padding: 4em 0em 13em;
-		height: 50%;
-	}
+		#banner {
+			background-image: url(../images/back-to-school-top_1920.jpg);	
+		/*	padding: 4em 0em 13em; */
+			height: 200px;
+		}
 		#banner h1 {
 			font-size: 1.75em;
 			line-height: 1.25em;
@@ -124,7 +124,7 @@
 			margin: 3px;
 			background-color: lightgray;
 			color: black;
-			padding: 5px 5px;
+		/*	padding: 5px 5px; */
 			text-align: center; 
 			display: inline-block;
 			text-decoration: none;

@@ -46,8 +46,8 @@ export function ToolsList(props) {
                     <span className='item'>{toolLink(tool)}</span>  
                     <span className='item'>{convertNumberToStars(tool['rating'])}</span>                                          
                     <span className='item'><strong>Price:</strong> {formattedPrice(tool['price'])}</span>
-                    <span className='item price'><Link className="styled-link" to={`comment/${tool['id']}`}>View Comments</Link></span>
-                    <span className='item'><Link className="styled-link" to={`toolseditform/${tool['id']}`} tool={params(tool['id'])}>Edit</Link></span>                       
+                    <span className='item price'><Link className="styled-link" to={`comment/${tool['id']}`}  >View Comments</Link></span>
+                    <span className='item'><Link className="styled-link" to={`toolseditform/${tool['id']}`} tool={params(tool['id'])} >Edit</Link></span>                       
                 </div>
                 <div className='item' key={index+2}>
                     <span>{tool['description']}</span>
