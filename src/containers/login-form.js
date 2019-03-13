@@ -65,10 +65,10 @@ export class LoginForm extends React.Component {
         }
 
         return (
-            <section  className="wrapper  special" tabIndex="0"> 
+            <section  className="flex-container wrapper  special" tabIndex="0"> 
             <h2>Welcome to My Educational Tools App</h2>         
                 <form  
-                    className="form"
+                    className=" flex-item form"
                 >
                     {error}                                                                                                          
                     <label htmlFor="username">Username</label>                    
