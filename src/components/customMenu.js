@@ -1,6 +1,4 @@
 import React from 'react';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
 import {Link} from 'react-router-dom';
 import './customMenu.css';
 let barsOrX = "fa fa-bars";
@@ -11,7 +9,7 @@ export function CustomMenu(props) {
         currentRoute = props.route;
         
     let setSelectedMenuItem = (menuItem) => {    
-        // following paths should have "Home" selected on navigation
+        // extract current location
         const page = currentRoute.indexOf('?') > -1 ? currentRoute.split('?')[0] : currentRoute;
         let pageName = page.indexOf('/') > -1 ? page.split('/')[1] : page;  
          pageName = pageName === "" ? "home" : pageName;
@@ -33,7 +31,7 @@ export function CustomMenu(props) {
                                 terms: ""
                                 }
         
-        let mappedPage = locationToMenu[pageName];                                 
+        let mappedPage = locationToMenu[pageName]; 
         if (mappedPage) {
             return  menuItem === mappedPage ? "menuitem active" : "menuitem";              
         }
@@ -41,14 +39,6 @@ export function CustomMenu(props) {
             return menuItem === pageName ? "menuitem active" : "menuitem";                
         }            
     }
-
-    /*
-    let logOut = () => {
-        setSelectedMenuItem('logout');
-        props.dispatch(clearAuth());
-        clearAuthToken();
-    }
-    */
    
     let menuFunction = () => {
         let x = document.getElementById("myTopnav");      

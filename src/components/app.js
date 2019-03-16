@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 
 import HeaderBar from './header-bar';
-import CustomMenu from './customMenu';
 import Banner from './banner/banner';
 import Footer from './footer/footer';
 import LoginForm from './login/login-form';
@@ -64,14 +63,14 @@ export class App extends React.Component {
         clearAuthToken();
     }
 
-    render() {
-        let menuParams = {route: currentRoute, loggedIn: this.props.loggedIn};
-        let userParams = {currentUser: this.props.currentUser, loggedIn: this.props.loggedIn };
-        
+    render() {     
+        let headerProps = {currentUser: this.props.currentUser, 
+            loggedIn: this.props.loggedIn,
+            route: currentRoute,
+            logOut: this.logOut }
         return (
-            <div className="app">         
-                <CustomMenu  {...menuParams}  logOut={this.logOut}/>          
-                <HeaderBar {...userParams}/> 
+            <div className="app">                                 
+                <HeaderBar {...headerProps}/> 
                 <Banner />  
                 <Route exact path="/" component={LandingPage} />
                 <Route exact path="/landingpage" component={LandingPage} />

@@ -1,8 +1,7 @@
 import React from 'react';
+import CustomMenu from './customMenu';
  
 export function HeaderBar(props) {  
- 
-    console.log("CONTAINER HeaderBar render this.props", props);
     // Only render the user information if the user is logged in
     let userInfo;   
     if (props.loggedIn) {               
@@ -12,12 +11,14 @@ export function HeaderBar(props) {
                 <em> Name:</em> {props.currentUser.firstName} {props.currentUser.lastName}
             </div>                                                       
         );
-    }   
+    }  
+    let menuParams = {route: props.route, loggedIn: props.loggedIn}; 
     return (      
-        <header>             
+        <header>  
+             <CustomMenu  {...menuParams}  logOut={props.logOut}/>            
             <div>
                 {userInfo}
-            </div>
+            </div>  
         </header>    								         
     );        
 }
