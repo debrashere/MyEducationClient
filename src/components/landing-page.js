@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect} from 'react-router-dom';
-import {DashboardWidgets} from '../components/dashboard-widgets';
+import {DashboardWidgets} from './dashboard/dashboard-widgets';
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard   

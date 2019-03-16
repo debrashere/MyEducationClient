@@ -2,13 +2,14 @@ import React from 'react';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
 import {Link} from 'react-router-dom';
+import './customMenu.css';
 let barsOrX = "fa fa-bars";
 let currentRoute = "/home";
  
 export function CustomMenu(props) {  
     if (props && props.route)
         currentRoute = props.route;
-
+        
     let setSelectedMenuItem = (menuItem) => {    
         // following paths should have "Home" selected on navigation
         const page = currentRoute.indexOf('?') > -1 ? currentRoute.split('?')[0] : currentRoute;
@@ -41,11 +42,13 @@ export function CustomMenu(props) {
         }            
     }
 
+    /*
     let logOut = () => {
         setSelectedMenuItem('logout');
         props.dispatch(clearAuth());
         clearAuthToken();
     }
+    */
    
     let menuFunction = () => {
         let x = document.getElementById("myTopnav");      
@@ -63,7 +66,7 @@ export function CustomMenu(props) {
         let logOutButton;        
         if (props.loggedIn) {
             logOutButton = (
-               <Link to="#"  onClick={() => logOut()}  id="menuitem-logout" className={setSelectedMenuItem('logout')}> | Log out</Link>   
+               <Link to="#"  onClick={() => props.logOut()}  id="menuitem-logout" className={setSelectedMenuItem('logout')}> | Log out</Link>   
             );
         }
         // Only render login button if user is not logged in
@@ -84,7 +87,7 @@ export function CustomMenu(props) {
         
         let  menuButton = (             
            <Link  to="" id="menuButton" onClick={() => menuFunction()}  className="icon" >
-                <i className={barsOrX}></i> 
+                 <i className={barsOrX}></i> 
             </Link>                                                                 		                  
         );         
              

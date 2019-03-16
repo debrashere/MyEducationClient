@@ -1,5 +1,5 @@
 import React from 'react';
-import {convertNumberToStars} from '../utils'; 
+import {convertNumberToStars} from '../../utils'; 
 import './blog.css';
  
 export function Blog(props) { 

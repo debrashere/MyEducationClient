@@ -3,7 +3,7 @@ import React from 'react';
 /*
     Overview of the App pages
 */
-export function ToolsOverview(props) {                               
+export function ToolsOverview() {                               
     return (
         <div className='flex-container'>                     
              <div className='flex-item'>

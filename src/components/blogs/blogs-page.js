@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Blogs from '../components/blogs';
-import { fetchBlogs } from '../actions/blogsActions';
-import requiresLogin from '../components/requires-login';
+import Blogs from './blogs';
+import { fetchBlogs } from '../../actions/blogsActions';
+import requiresLogin from '../requires-login';
 import {Link} from 'react-router-dom';
  
 /*

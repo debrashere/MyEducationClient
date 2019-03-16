@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus } from 'redux-form';
 import {Link, Redirect} from 'react-router-dom';
-import {createTool} from '../actions/toolsActions';
-import Input from '../components/input';
-import {required, nonEmpty, isTrimmed, isUrlFormatValid, isNumeric, isRatingValid} from '../validators';
+import {createTool} from '../../actions/toolsActions';
+import Input from '../input';
+import {required, nonEmpty, isTrimmed, isUrlFormatValid, isNumeric, isRatingValid} from '../../validators';
 
 export class ToolsForm extends React.Component {  
     parsedUrl = (value) => {

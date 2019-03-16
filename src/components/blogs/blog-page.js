@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import BlogsForm from '../components/blog-form';
-import Blog from '../components/blog';
-import { fetchBlog } from '../actions/blogsActions';
-import requiresLogin from '../components/requires-login';
+import BlogsForm from './blog-form';
+import Blog from './blog';
+import { fetchBlog } from '../../actions/blogsActions';
+import requiresLogin from '../requires-login';
 
 /*
     Displays blogging content for a specific Tool

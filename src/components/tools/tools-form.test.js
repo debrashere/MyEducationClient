@@ -1,6 +1,6 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import * as types from '../contraints/toolsActionTypes';
+import * as types from '../../contraints/toolsActionTypes';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
@@ -9,9 +9,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import {mapStateToProps, ToolsForm, reduxForm} from './tools-form';
 import renderer  from 'react-test-renderer';
  
-jest.mock('../actions/toolsActions');
-import * as actions from '../actions/__mocks__/toolsActions';
-import { setStore, store} from  '../actions/__mocks__/toolsActions';
+jest.mock('../../actions/toolsActions');
+import * as actions from '../../actions/__mocks__/toolsActions';
+import { setStore, store} from  '../../actions/__mocks__/toolsActions';
  
 //configure({ adapter: new Adapter() });
 const middlewares = [thunk]

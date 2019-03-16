@@ -1,8 +1,8 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
 import ToolsPage from './tools-page';
-import * as types from '../contraints/toolsActionTypes';
-import * as actions from '../actions/toolsActions';
+import * as types from '../../contraints/toolsActionTypes';
+import * as actions from '../../actions/toolsActions';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 

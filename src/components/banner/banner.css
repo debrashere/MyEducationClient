@@ -1,6 +1,6 @@
 /* Banner */
 #banner {
-		background-image: url(../images/back-to-school-top_640.jpg);	
+		background-image: url(../../images/back-to-school-top_640.jpg);	
     background-position: center center;
     background-size: cover;
     color: #000000;
@@ -75,7 +75,7 @@
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {	
 		#banner {
-			background-image: url(../images/back-to-school-top_1920.jpg);	
+			background-image: url(../../images/back-to-school-top_1920.jpg);	
 		/*	padding: 2em 0em 13em; */
 			height: 200px;
 		}
@@ -92,7 +92,7 @@
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {	
 	#banner {
-		background-image: url(../images/back-to-school-top_1920.jpg);	
+		background-image: url(../../images/back-to-school-top_1920.jpg);	
 	/*	padding: 2em 0em 13em; */
 		height: 200px;
 	}
@@ -108,7 +108,7 @@
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {			
 		#banner {
-			background-image: url(../images/back-to-school-top_1920.jpg);	
+			background-image: url(../../images/back-to-school-top_1920.jpg);	
 		/*	padding: 4em 0em 13em; */
 			height: 200px;
 		}

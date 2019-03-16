@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import ToolsList from '../components/tools-list'
-import { fetchTools } from '../actions/toolsActions';
-import requiresLogin from '../components/requires-login'; 
+import ToolsList from './tools-list'
+import { fetchTools } from '../../actions/toolsActions';
+import requiresLogin from '../requires-login'; 
  
 /*
   List of existing tools

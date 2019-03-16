@@ -1,4 +1,4 @@
-import {fetchToolsSuccess,  fetchToolSuccess, createToolSuccess,updateToolSuccess} from './toolsActions';
+import {fetchToolsSuccess,  fetchToolSuccess, createToolSuccess,updateToolSuccess} from '../actions/toolsActions';
 import {FETCH_TOOLS_SUCCESS,  FETCH_TOOL_SUCCESS, CREATE_TOOL_SUCCESS, UPDATE_TOOL_SUCCESS} from '../contraints/toolsActionTypes';
 
 describe('ToolsActions', () => {

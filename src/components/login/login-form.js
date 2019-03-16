@@ -2,10 +2,10 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
 import {Link} from 'react-router-dom';
-import Input from '../components/input';
-import {login} from '../actions/auth';
+import Input from '../input';
+import {login} from '../../actions/auth';
 import {Redirect} from 'react-router-dom';
-import {required, nonEmpty, validateField} from '../validators';
+import {required, nonEmpty, validateField} from '../../validators';
 
 let errors = [];
 let error;

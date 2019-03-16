@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
-import {fetchTool, updateTool} from '../actions/toolsActions';
-import Input from '../components/input';
-import requiresLogin from '../components/requires-login';
-import {required, nonEmpty, isTrimmed, isUrlFormatValid, isNumeric , isRatingValid} from '../validators';
+import {fetchTool, updateTool} from '../../actions/toolsActions';
+import Input from '../input';
+import requiresLogin from '../requires-login';
+import {required, nonEmpty, isTrimmed, isUrlFormatValid, isNumeric , isRatingValid} from '../../validators';
 import {Link, Redirect} from 'react-router-dom';
 
 export class ToolsEditForm extends React.Component { 

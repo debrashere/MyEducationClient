@@ -1,8 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-
-import * as types from '../contraints/blogsActionTypes';
-import * as actions from '../actions/blogsActions';
+import * as types from '../../contraints/blogsActionTypes';
+import * as actions from '../../actions/blogsActions';
 
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
@@ -13,17 +12,30 @@ const mockStore = configureMockStore(middlewares)
 describe('async actions', () => {
     let blogs = [];
     let currentUser;
+    let thisComments = [];
     let props;
+    let blog;
     beforeAll(() => {
-        for (let i = 1; i < 6 ; i++) {
+        
+        for (let i = 1; i < 2 ; i++) {
+            thisComments.push({         
+                authorId: `authorId-${i}`,
+                content: `content-${i}`
+            })
+        }   
+
+        for (let i = 1; i < 2 ; i++) {
             blogs.push({
                 id: i,
-                title: `title-${i}`,
-                description: `description-${i}`,
-                url: `url${i}`,
-                price: i ,
-                rating: i,
-            });
+                toolId: {_id: i},
+                comments: thisComments
+                })
+        }        
+
+        blog = {
+            id: 1,
+            toolId: {_id: 1},
+            comments: [{authorId: 'authorId-1', content: 'content-1'}]
         }
 
         currentUser = {
@@ -33,7 +45,7 @@ describe('async actions', () => {
 
         props = {
                 currentUser: currentUser,
-                blogs: blogs
+                blog: blog
             };
     })
  
@@ -49,13 +61,13 @@ describe('async actions', () => {
         );
 
         const expected = [
-            {type: types.FETCH_BLOGS},
-            {blogs: blogs,
-              type: types.FETCH_BLOGS_SUCCESS}
+            {type: types.FETCH_BLOG},
+            {blog: blog,
+              type: types.FETCH_BLOG_SUCCESS}
         ]
 
-        const store = mockStore({ blogs: [],  auth: {authToken:'token' }});
-        return store.dispatch(actions.fetchBlogs()).then(() => {
+        const store = mockStore({ blog: {},  auth: {authToken:'token' }});
+        return store.dispatch(actions.fetchBlog()).then(() => {
             // return of async actions
             expect(store.getActions()).toEqual(expected)
           })

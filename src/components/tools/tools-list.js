@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {convertNumberToStars} from '../utils'; 
+import {convertNumberToStars} from '../../utils'; 
 
 /*
     Renders list of tooks 

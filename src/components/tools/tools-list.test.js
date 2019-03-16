@@ -69,7 +69,7 @@ describe('<ToolsList />', () => {
 const mockFetchToolsAction = {
     type: 'FETCH_TOOLS'
 };
-jest.mock('../actions/toolsActions', () => Object.assign({},
+jest.mock('../../actions/toolsActions', () => Object.assign({},
     require.requireActual('../actions/toolsActions'),
     {
         fetchToolsList: jest.fn().mockImplementation(() => {

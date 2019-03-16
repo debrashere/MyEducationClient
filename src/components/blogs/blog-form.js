@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
-import {createBlog, updateBlog, deleteBlog} from '../actions/blogsActions';
-import Input from './input';
-import {required,  isTrimmed,  isNumeric, isRatingValid, nonEmpty, validateField} from '../validators';
+import {createBlog, updateBlog, deleteBlog} from '../../actions/blogsActions';
+import Input from '../input';
+import {required,  isTrimmed,  isNumeric, isRatingValid, nonEmpty, validateField} from '../../validators';
 
 let errors = [];
 let validationErrors;
